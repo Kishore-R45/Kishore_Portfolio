@@ -18,16 +18,30 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Content */}
-          <div className="text-center lg:text-left order-2 lg:order-1" data-aos="fade-right">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Left Side - Image */}
+          <div className="flex justify-center lg:justify-start order-1" data-aos="fade-right">
+            <div className="relative">
+              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-200 dark:border-blue-400/30 hover:border-blue-400 dark:hover:border-blue-400/60 transition-all duration-500 hover:scale-105 group shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  alt="Profile"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse" />
+            </div>
+          </div>
+
+          {/* Right Side - Content */}
+          <div className="text-center lg:text-left order-2" data-aos="fade-left">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 John Doe
               </span>
             </h1>
 
-            <div className="text-2xl md:text-3xl font-semibold mb-8 h-20">
+            <div className="text-2xl md:text-3xl font-semibold mb-4 h-16">
               <TypeAnimation
                 sequence={[
                   'I am a Developer',
@@ -46,13 +60,13 @@ const Hero: React.FC = () => {
               />
             </div>
 
-            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl">
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
               Passionate full-stack developer with expertise in modern web technologies. 
               I love creating innovative solutions and bringing ideas to life through code.
             </p>
 
             {/* Social Links */}
-            <div className="flex justify-center lg:justify-start space-x-6 mb-8">
+            <div className="flex justify-center lg:justify-start space-x-6 mb-6">
               <a
                 href="https://github.com"
                 target="_blank"
@@ -85,20 +99,6 @@ const Hero: React.FC = () => {
               >
                 View Resume
               </button>
-            </div>
-          </div>
-
-          {/* Right Side - Image */}
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2" data-aos="fade-left">
-            <div className="relative">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-200 dark:border-blue-400/30 hover:border-blue-400 dark:hover:border-blue-400/60 transition-all duration-500 hover:scale-105 group shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-                  alt="Profile"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse" />
             </div>
           </div>
         </div>
