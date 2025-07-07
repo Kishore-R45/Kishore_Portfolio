@@ -53,11 +53,11 @@ const Projects: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             A showcase of my recent work and technical achievements.
           </p>
         </div>
@@ -68,7 +68,7 @@ const Projects: React.FC = () => {
               key={index}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
+              className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:scale-105"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -80,10 +80,10 @@ const Projects: React.FC = () => {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-white/70 mb-4 text-sm leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -91,7 +91,7 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded border border-purple-500/30"
+                      className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full border border-blue-200 dark:border-blue-800"
                     >
                       {tech}
                     </span>
@@ -102,10 +102,10 @@ const Projects: React.FC = () => {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                  className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg border-2 border-transparent hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
                 >
                   <Github className="w-4 h-4" />
-                  <span className="text-sm">View Code</span>
+                  <span className="text-sm font-medium">View Code</span>
                 </a>
               </div>
             </div>
@@ -118,7 +118,7 @@ const Projects: React.FC = () => {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold rounded-lg hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
             <Github className="w-5 h-5" />
             <span>More Projects on GitHub</span>

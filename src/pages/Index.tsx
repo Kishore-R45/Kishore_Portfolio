@@ -19,15 +19,16 @@ import { ThemeProvider } from '../context/ThemeContext';
 const Index = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100,
+      duration: 800,
+      once: false,
+      offset: 50,
+      mirror: true,
     });
   }, []);
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-slate-950 dark:via-purple-950 dark:to-slate-950 transition-all duration-500">
+      <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900 transition-all duration-500">
         <ParticleBackground />
         <Navbar />
         <main className="relative z-10">
