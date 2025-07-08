@@ -209,7 +209,7 @@ const CodingPlatforms: React.FC = () => {
               <div className="text-xl font-bold mt-1">{data.mediumSolved}</div>
             </div>
             <div className="text-center">
-              <Badge variant="secondary" className="bg-red-100 text-red-800">Hard (>1800)</Badge>
+              <Badge variant="secondary" className="bg-red-100 text-red-800">Hard ({'>'}1800)</Badge>
               <div className="text-xl font-bold mt-1">{data.hardSolved}</div>
             </div>
           </div>
