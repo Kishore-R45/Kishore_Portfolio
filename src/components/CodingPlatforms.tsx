@@ -8,9 +8,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 const CodingPlatforms: React.FC = () => {
   // Replace these with your actual usernames
   const usernames = {
-    leetcode: 'your-leetcode-username', // Replace with your LeetCode username
-    geeksforgeeks: 'your-gfg-username', // Replace with your GFG username
-    codeforces: 'your-codeforces-username' // Replace with your Codeforces username
+    leetcode: 'Kishore2006_30', // Replace with your LeetCode username
+    geeksforgeeks: 'kishore45', // Replace with your GFG username
+    codeforces: 'kishoreramesh302006' // Replace with your Codeforces username
   };
 
   const { stats, loading, errors } = useCodingStats(usernames);
@@ -201,15 +201,15 @@ const CodingPlatforms: React.FC = () => {
         <TabsContent value="difficulty" className="mt-4">
           <div className="grid grid-cols-3 gap-2">
             <div className="text-center">
-              <Badge variant="secondary" className="bg-green-100 text-green-800">Easy (≤1200)</Badge>
+              <Badge variant="secondary" className="bg-green-100 text-green-800">Easy</Badge>
               <div className="text-xl font-bold mt-1">{data.easySolved}</div>
             </div>
             <div className="text-center">
-              <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">Medium (1201-1800)</Badge>
+              <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">Medium</Badge>
               <div className="text-xl font-bold mt-1">{data.mediumSolved}</div>
             </div>
             <div className="text-center">
-              <Badge variant="secondary" className="bg-red-100 text-red-800">Hard ({'>'}1800)</Badge>
+              <Badge variant="secondary" className="bg-red-100 text-red-800">Hard</Badge>
               <div className="text-xl font-bold mt-1">{data.hardSolved}</div>
             </div>
           </div>
@@ -224,10 +224,6 @@ const CodingPlatforms: React.FC = () => {
             <div className="flex justify-between">
               <span>Max Rating:</span>
               <span className="font-bold">{data.maxRating}</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Max Rank:</span>
-              <span className="font-bold">{data.maxRank}</span>
             </div>
           </div>
         </TabsContent>
