@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   };
 
   const openResume = () => {
-    window.open('/resume.pdf', '_blank');
+    window.open('../public/assets/Resume-Final.pdf', '_blank');
   };
 
   return (
@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-200 dark:border-blue-400/30 hover:border-blue-400 dark:hover:border-blue-400/60 transition-all duration-500 hover:scale-105 group shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  src="../public/assets/myimage.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
           <div className="text-center lg:text-left order-2" data-aos="fade-left">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                John Doe
+                Kishore R
               </span>
             </h1>
 
@@ -48,9 +48,9 @@ const Hero: React.FC = () => {
                   2000,
                   'I am a Problem Solver',
                   2000,
-                  'I build beautiful UIs',
+                  'I am a UI/UX designer',
                   2000,
-                  'I create robust systems',
+                  'I am a Video Editor',
                   2000,
                 ]}
                 wrapper="span"
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
             {/* Social Links */}
             <div className="flex justify-center lg:justify-start space-x-6 mb-6">
               <a
-                href="https://github.com"
+                href="https://github.com/Kishore-R45"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 hover:scale-110 hover:shadow-lg transition-all duration-300"
@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
                 <Github className="w-6 h-6" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/kishore-r45"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 hover:scale-110 hover:shadow-lg transition-all duration-300"

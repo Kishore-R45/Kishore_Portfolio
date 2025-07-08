@@ -5,7 +5,7 @@ import { Github } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Online-Voting System",
       description: "Full-stack e-commerce solution with React, Node.js, and MongoDB",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
