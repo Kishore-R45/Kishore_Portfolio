@@ -1,31 +1,23 @@
-import React, { useState } from 'react';
-import { Button } from './ui/button';
+
+import React from 'react';
 
 const Experience: React.FC = () => {
-  const [filter, setFilter] = useState<'all' | 'internship'>('all');
-
   const experiences = [
     {
       role: "Java Full Stack Developer",
       company: "Zidio Development", 
       duration: "Jan/2025 - Apr/2025",
       description: "Built a Expense tracker management with excellent features, Improved application performance by 25% through code optimization",
-      technologies: ["Core Java", "Springboot", "React", "MongoDB"],
-      type: "full-time"
+      technologies: ["Core Java", "Springboot", "React", "MongoDB"]
     },
     {
       role: "Software Development Intern",
       company: "Tech Solutions Inc.",
       duration: "Jun/2024 - Dec/2024",
       description: "Developed responsive web applications using modern frameworks, Collaborated with senior developers on enterprise-level projects, Gained hands-on experience in agile development methodologies",
-      technologies: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Git"],
-      type: "internship"
+      technologies: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Git"]
     }
   ];
-
-  const filteredExperiences = filter === 'all' 
-    ? experiences 
-    : experiences.filter(exp => exp.type === 'internship');
 
   return (
     <section id="experience" className="py-20 relative">
@@ -41,40 +33,12 @@ const Experience: React.FC = () => {
           </p>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="flex justify-center mb-12" data-aos="fade-up">
-          <div className="flex gap-4">
-            <Button
-              onClick={() => setFilter('all')}
-              variant={filter === 'all' ? 'default' : 'outline'}
-              className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                filter === 'all' 
-                  ? 'bg-gradient-to-r from-purple-400 to-cyan-400 text-white' 
-                  : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
-              }`}
-            >
-              All Experience
-            </Button>
-            <Button
-              onClick={() => setFilter('internship')}
-              variant={filter === 'internship' ? 'default' : 'outline'}
-              className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                filter === 'internship' 
-                  ? 'bg-gradient-to-r from-purple-400 to-cyan-400 text-white' 
-                  : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
-              }`}
-            >
-              Internship
-            </Button>
-          </div>
-        </div>
-
         <div className="relative">
           {/* Timeline Line */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-400 to-cyan-400 transform md:-translate-x-0.5" />
 
           <div className="space-y-12">
-            {filteredExperiences.map((exp, index) => (
+            {experiences.map((exp, index) => (
               <div
                 key={index}
                 data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
