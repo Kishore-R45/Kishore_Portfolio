@@ -1,14 +1,20 @@
-
 import React from 'react';
 
 const Experience: React.FC = () => {
   const experiences = [
     {
       role: "Java Full Stack Developer",
-      company: "Zidio Development",
+      company: "Zidio Development", 
       duration: "Jan/2025 - Apr/2025",
       description: "Built a Expense tracker management with excellent features, Improved application performance by 25% through code optimization",
       technologies: ["Core Java", "Springboot", "React", "MongoDB"]
+    },
+    {
+      role: "Software Development Intern",
+      company: "Tech Solutions Inc.",
+      duration: "Jun/2024 - Dec/2024",
+      description: "Developed responsive web applications using modern frameworks, Collaborated with senior developers on enterprise-level projects, Gained hands-on experience in agile development methodologies",
+      technologies: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Git"]
     }
   ];
 
