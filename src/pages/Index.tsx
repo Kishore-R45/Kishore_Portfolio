@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from '../components/Navbar';
@@ -14,13 +14,9 @@ import Certifications from '../components/Certifications';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import ParticleBackground from '../components/ParticleBackground';
-import LoadingAnimation from '../components/LoadingAnimation';
 import { ThemeProvider } from '../context/ThemeContext';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -30,22 +26,9 @@ const Index = () => {
     });
   }, []);
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    setTimeout(() => {
-      setShowContent(true);
-    }, 300);
-  };
-
   return (
     <ThemeProvider>
-      {isLoading && <LoadingAnimation onComplete={handleLoadingComplete} />}
-      
-      <div 
-        className={`relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900 transition-all duration-1000 ${
-          showContent ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
-        }`}
-      >
+      <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900 transition-all duration-500">
         <ParticleBackground />
         <Navbar />
         <main className="relative z-10">
