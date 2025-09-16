@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const projects = [
@@ -9,42 +9,48 @@ const Projects: React.FC = () => {
       description: "Full-stack e-commerce solution with React, Node.js, and MongoDB",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com"
+      github: "https://github.com",
+      demo: "https://demo-link.com"
     },
     {
       title: "Task Management App",
       description: "Real-time collaborative task management with WebSocket integration",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
       technologies: ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
-      github: "https://github.com"
+      github: "https://github.com",
+      demo: "https://demo-link.com"
     },
     {
       title: "AI Chat Application",
       description: "Intelligent chatbot with natural language processing capabilities",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
       technologies: ["React", "Python", "FastAPI", "OpenAI"],
-      github: "https://github.com"
+      github: "https://github.com",
+      demo: "https://demo-link.com"
     },
     {
       title: "Weather Dashboard",
       description: "Beautiful weather app with detailed forecasts and interactive maps",
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
       technologies: ["Next.js", "TypeScript", "Tailwind", "Weather API"],
-      github: "https://github.com"
+      github: "https://github.com",
+      demo: "https://demo-link.com"
     },
     {
       title: "Cryptocurrency Tracker",
       description: "Real-time crypto price tracking with portfolio management",
       image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
       technologies: ["React", "Redux", "Chart.js", "CoinGecko API"],
-      github: "https://github.com"
+      github: "https://github.com",
+      demo: "https://demo-link.com"
     },
     {
       title: "Social Media Analytics",
       description: "Comprehensive analytics dashboard for social media metrics",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
       technologies: ["Angular", "D3.js", "Node.js", "MySQL"],
-      github: "https://github.com"
+      github: "https://github.com",
+      demo: "https://demo-link.com"
     }
   ];
 
@@ -98,15 +104,26 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
                 
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg border-2 border-transparent hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
-                >
-                  <Github className="w-4 h-4" />
-                  <span className="text-sm font-medium">View Code</span>
-                </a>
+                <div className="flex gap-3">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg border-2 border-transparent hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span className="text-sm font-medium">Code</span>
+                  </a>
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-lg border-2 border-transparent hover:from-green-700 hover:to-teal-700 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span className="text-sm font-medium">Demo</span>
+                  </a>
+                </div>
               </div>
             </div>
           ))}

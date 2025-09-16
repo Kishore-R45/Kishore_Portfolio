@@ -68,24 +68,17 @@ const Certifications: React.FC = () => {
         </div>
 
         <div 
-          className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+          className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden max-w-md mx-auto"
           onMouseEnter={() => setIsPlaying(false)}
           onMouseLeave={() => setIsPlaying(true)}
           data-aos="fade-up"
         >
-          <div className="relative h-64 md:h-80">
+          <div className="relative h-80">
             <img
               src={certifications[currentIndex].image}
               alt={certifications[currentIndex].title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            
-            <div className="absolute bottom-6 left-6 right-6 text-white">
-              <h3 className="text-2xl font-bold mb-2">{certifications[currentIndex].title}</h3>
-              <p className="text-lg opacity-90">{certifications[currentIndex].issuer}</p>
-              <p className="text-sm opacity-75">{certifications[currentIndex].date}</p>
-            </div>
           </div>
 
           {/* Navigation Arrows */}

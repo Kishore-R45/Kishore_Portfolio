@@ -47,6 +47,27 @@ export const fetchGeeksforGeeksStats = async (username: string) => {
   }
 };
 
+// CodeChef API service
+export const fetchCodeChefStats = async (username: string) => {
+  try {
+    // CodeChef doesn't have a public API, using mock data
+    // In production, you'd need backend scraping
+    return {
+      totalSolved: 245,
+      easySolved: 120,
+      mediumSolved: 95,
+      hardSolved: 30,
+      rating: 1650,
+      maxRating: 1750,
+      rank: '3 Star',
+      globalRank: 15420
+    };
+  } catch (error) {
+    console.error('CodeChef API Error:', error);
+    return null;
+  }
+};
+
 // Codeforces API service
 export const fetchCodeforcesStats = async (username: string) => {
   try {

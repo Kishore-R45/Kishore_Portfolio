@@ -28,7 +28,7 @@ const Experience: React.FC = () => {
               Work Experience
             </span>
           </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
             My professional journey and the impact I've made along the way.
           </p>
         </div>
@@ -52,16 +52,16 @@ const Experience: React.FC = () => {
                 
                 {/* Content Card */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <div className="group relative p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20">
+                  <div className="group relative p-6 rounded-2xl bg-white/90 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20">
                     <div className="mb-4">
-                      <h3 className="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-400 transition-colors duration-300">
                         {exp.role}
                       </h3>
-                      <p className="text-lg text-purple-400 font-semibold">{exp.company}</p>
-                      <p className="text-white/60">{exp.duration}</p>
+                      <p className="text-lg text-purple-500 dark:text-purple-400 font-semibold">{exp.company}</p>
+                      <p className="text-gray-600 dark:text-white/60">{exp.duration}</p>
                     </div>
                     
-                    <p className="text-white/70 mb-4 leading-relaxed">
+                    <p className="text-gray-700 dark:text-white/70 mb-4 leading-relaxed">
                       {exp.description}
                     </p>
                     
@@ -69,7 +69,7 @@ const Experience: React.FC = () => {
                       {exp.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 text-sm bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30 hover:bg-purple-500/30 transition-colors duration-300"
+                          className="px-3 py-1 text-sm bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 rounded-full border border-purple-300 dark:border-purple-500/30 hover:bg-purple-200 dark:hover:bg-purple-500/30 transition-colors duration-300"
                         >
                           {tech}
                         </span>

@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}

@@ -10,7 +10,8 @@ const CodingPlatforms: React.FC = () => {
   const usernames = {
     leetcode: 'Kishore2006_30', // Replace with your LeetCode username
     geeksforgeeks: 'kishore45', // Replace with your GFG username
-    codeforces: 'kishoreramesh302006' // Replace with your Codeforces username
+    codeforces: 'kishoreramesh302006', // Replace with your Codeforces username
+    codechef: 'kishore2006' // Replace with your CodeChef username
   };
 
   const { stats, loading, errors } = useCodingStats(usernames);
@@ -48,6 +49,17 @@ const CodingPlatforms: React.FC = () => {
       bgColor: "bg-blue-50 dark:bg-blue-900/20",
       borderColor: "border-blue-200 dark:border-blue-800",
       profileUrl: `https://codeforces.com/profile/${usernames.codeforces}`
+    },
+    {
+      name: "CodeChef",
+      logo: "https://cdn.codechef.com/images/cc-logo.svg",
+      data: stats.codechef,
+      loading: loading.codechef,
+      error: errors.codechef,
+      color: "from-amber-400 to-orange-500",
+      bgColor: "bg-amber-50 dark:bg-amber-900/20",
+      borderColor: "border-amber-200 dark:border-amber-800",
+      profileUrl: `https://www.codechef.com/users/${usernames.codechef}`
     }
   ];
 
@@ -231,6 +243,66 @@ const CodingPlatforms: React.FC = () => {
     </div>
   );
 
+  const renderCodeChefStats = (data: any) => (
+    <div className="space-y-4">
+      <div className="grid grid-cols-2 gap-4">
+        <Card className="bg-white/50 dark:bg-gray-700/50">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg">Total Solved</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-amber-600">{data.totalSolved}</div>
+          </CardContent>
+        </Card>
+        <Card className="bg-white/50 dark:bg-gray-700/50">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg">Current Rating</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-amber-600">{data.rating}</div>
+          </CardContent>
+        </Card>
+      </div>
+      
+      <Tabs defaultValue="difficulty" className="w-full">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="difficulty">By Difficulty</TabsTrigger>
+          <TabsTrigger value="stats">Stats</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="difficulty" className="mt-4">
+          <div className="grid grid-cols-3 gap-2">
+            <div className="text-center">
+              <Badge variant="secondary" className="bg-green-100 text-green-800">Easy</Badge>
+              <div className="text-xl font-bold mt-1">{data.easySolved}</div>
+            </div>
+            <div className="text-center">
+              <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">Medium</Badge>
+              <div className="text-xl font-bold mt-1">{data.mediumSolved}</div>
+            </div>
+            <div className="text-center">
+              <Badge variant="secondary" className="bg-red-100 text-red-800">Hard</Badge>
+              <div className="text-xl font-bold mt-1">{data.hardSolved}</div>
+            </div>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="stats" className="mt-4">
+          <div className="space-y-2">
+            <div className="flex justify-between">
+              <span>Star Rating:</span>
+              <span className="font-bold">{data.rank}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Global Rank:</span>
+              <span className="font-bold">{data.globalRank}</span>
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+
   return (
     <section id="coding" className="py-20 relative bg-gray-50 dark:bg-gray-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -245,7 +317,7 @@ const CodingPlatforms: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {platforms.map((platform, index) => (
             <div
               key={index}
@@ -277,6 +349,7 @@ const CodingPlatforms: React.FC = () => {
                   {platform.name === 'LeetCode' && renderLeetCodeStats(platform.data)}
                   {platform.name === 'GeeksforGeeks' && renderGeeksforGeeksStats(platform.data)}
                   {platform.name === 'Codeforces' && renderCodeforcesStats(platform.data)}
+                  {platform.name === 'CodeChef' && renderCodeChefStats(platform.data)}
                 </>
               ) : (
                 <div className="text-center py-8">
