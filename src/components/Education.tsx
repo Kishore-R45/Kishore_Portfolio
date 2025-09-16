@@ -4,28 +4,20 @@ import React from 'react';
 const Education: React.FC = () => {
   const education = [
     {
-      degree: "Master of Science in Computer Science",
-      institution: "Stanford University",
-      duration: "2016 - 2018",
-      details: "Specialized in Machine Learning and Distributed Systems",
-      achievements: ["GPA: 3.8/4.0", "Research Assistant", "Published 2 papers"],
-      location: "California, USA"
-    },
-    {
-      degree: "Bachelor of Technology in Computer Engineering",
-      institution: "Indian Institute of Technology",
-      duration: "2012 - 2016",
+      degree: "Bachelor of Technology in Information Technology",
+      institution: "Easwari Engineering College",
+      duration: "2023 - 2027",
       details: "Major in Software Engineering with minor in Mathematics",
-      achievements: ["GPA: 8.5/10", "Dean's List", "Google Summer of Code"],
-      location: "Mumbai, India"
+      CGPA: ["8.3/10"],
+      location: "Chennai, Tamilnadu, India"
     },
     {
-      degree: "High School Diploma",
-      institution: "Delhi Public School",
-      duration: "2010 - 2012",
-      details: "Science Stream with Computer Science",
-      achievements: ["Top 1% in Board Exams", "Math Olympiad Winner", "Debate Team Captain"],
-      location: "New Delhi, India"
+      degree: "HSC",
+      institution: "NS Boys Higher Secondary School",
+      duration: "2016 - 2023",
+      details: "Bio-Maths",
+      achievements: ["88% in My 12th Board Exam", "Secured first rank in both Tamil and Physics at the school level"],
+      location: "Theni, Tamilnadu, India"
     }
   ];
 

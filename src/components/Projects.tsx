@@ -5,52 +5,52 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "Online-Voting System",
-      description: "Full-stack e-commerce solution with React, Node.js, and MongoDB",
+      title: "AI Code Reviewer",
+      description: "Multi-language support, bug detection, code quality rating, auto-fix option",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com",
-      demo: "https://demo-link.com"
+      technologies: ["React JS", "Tailwind CSS", "Monaco Editor", "Google Gemini API"],
+      github: "https://github.com/Kishore-R45/CodeLens-AI-Code-Reviewer",
+      demo: "https://code-lens-ai-code-reviewer.vercel.app/"
     },
     {
-      title: "Task Management App",
-      description: "Real-time collaborative task management with WebSocket integration",
+      title: "Tamil Song Recommender",
+      description: "Song similarity search, lyrics-based recommendation, Streamlit web app UI",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
-      technologies: ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
-      github: "https://github.com",
-      demo: "https://demo-link.com"
+      technologies: ["Python", "Streamlit", "Pandas", "HuggingFace"],
+      github: "https://github.com/Kishore-R45/Tamil-Song-Recommender",
+      demo: "https://tamil-song-recommender-45.streamlit.app/"
     },
     {
-      title: "AI Chat Application",
-      description: "Intelligent chatbot with natural language processing capabilities",
+      title: "Quiz App",
+      description: "Powerful user authentication, Instant result, Cool user interface",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
-      technologies: ["React", "Python", "FastAPI", "OpenAI"],
-      github: "https://github.com",
-      demo: "https://demo-link.com"
+      technologies: ["Java", "JavaFX", "JDBC", "MySQL"],
+      github: "https://github.com/Kishore-R45/Quiz-App--Final",
+      demo: "https://github.com/Kishore-R45/Quiz-App--Final"
     },
     {
-      title: "Weather Dashboard",
-      description: "Beautiful weather app with detailed forecasts and interactive maps",
+      title: "Online Voting System",
+      description: "One Person - One Vote, Admin Dashboard, Live Vote Result Bar Chart",
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
-      technologies: ["Next.js", "TypeScript", "Tailwind", "Weather API"],
-      github: "https://github.com",
-      demo: "https://demo-link.com"
+      technologies: ["PHP", "MySQL", "Chart JS", "HTML", "CSS"],
+      github: "https://github.com/Kishore-R45/Online-Voting-System",
+      demo: "https://github.com/Kishore-R45/Online-Voting-System"
     },
     {
-      title: "Cryptocurrency Tracker",
-      description: "Real-time crypto price tracking with portfolio management",
+      title: "Weather App",
+      description: "City based weather, Humidity, Wind Speed",
       image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
-      technologies: ["React", "Redux", "Chart.js", "CoinGecko API"],
-      github: "https://github.com",
-      demo: "https://demo-link.com"
+      technologies: ["HTML", "CSS", "JS", "Weather API"],
+      github: "https://github.com/Kishore-R45/Weather-App",
+      demo: "https://kishore-r45.github.io/Weather-App/"
     },
     {
-      title: "Social Media Analytics",
-      description: "Comprehensive analytics dashboard for social media metrics",
+      title: "To-Do List",
+      description: "A task management app to add, update, and track daily tasks with ease.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-      technologies: ["Angular", "D3.js", "Node.js", "MySQL"],
-      github: "https://github.com",
-      demo: "https://demo-link.com"
+      technologies: ["HTML", "CSS", "JS", "Local Storage"],
+      github: "https://github.com/Kishore-R45/To-Do-List",
+      demo: "https://kishore-r45.github.io/To-Do-List/"
     }
   ];
 
@@ -132,7 +132,7 @@ const Projects: React.FC = () => {
         {/* More Projects Link */}
         <div className="text-center" data-aos="fade-up">
           <a
-            href="https://github.com"
+            href="https://github.com/Kishore-R45/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 hover:shadow-lg transition-all duration-300"

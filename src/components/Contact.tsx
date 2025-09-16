@@ -53,11 +53,11 @@ const Contact: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Mail, href: 'mailto:contact@example.com', label: 'Email' },
+    { icon: Github, href: 'https://github.com/Kishore-R45', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/kishore-r45/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/__kishore._.45__/', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61551556833388', label: 'Facebook' },
+    { icon: Mail, href: 'mailto:kishoreramesh302006@gmail.com', label: 'Email' },
   ];
 
   return (

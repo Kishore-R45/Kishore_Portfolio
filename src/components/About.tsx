@@ -5,12 +5,12 @@ const About: React.FC = () => {
   const cards = [
     {
       title: "Who Am I?",
-      content: "I'm a passionate full-stack developer with 3+ years of experience creating digital solutions. I love turning complex problems into simple, beautiful, and intuitive designs.",
+      content: "Passionate B.Tech IT student constantly learning new technologies. Problem solver specializing in Data Structures and Algorithms. Creative thinker with deep interest in Artificial Intelligence.",
       icon: "👨‍💻"
     },
     {
       title: "How I Work",
-      content: "I believe in clean code, agile methodologies, and continuous learning. My approach combines technical expertise with creative problem-solving to deliver exceptional results.",
+      content: "Build full-stack applications transforming ideas into practical solutions. Explore emerging technologies to develop innovative and efficient solutions. Turn complex challenges into simple, elegant, and effective solutions.",
       icon: "⚡"
     },
     {
