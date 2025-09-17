@@ -68,12 +68,12 @@ const Certifications: React.FC = () => {
         </div>
 
         <div 
-          className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden max-w-md mx-auto"
+          className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden max-w-2xl mx-auto"
           onMouseEnter={() => setIsPlaying(false)}
           onMouseLeave={() => setIsPlaying(true)}
           data-aos="fade-up"
         >
-          <div className="relative h-80">
+          <div className="relative h-96">
             <img
               src={certifications[currentIndex].image}
               alt={certifications[currentIndex].title}

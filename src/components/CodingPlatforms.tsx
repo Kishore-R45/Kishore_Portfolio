@@ -16,6 +16,17 @@ const CodingPlatforms: React.FC = () => {
 
   const { stats, loading, errors } = useCodingStats(usernames);
 
+  // Manual GeeksforGeeks data - replace with your actual data
+  const manualGeeksforGeeksData = {
+    totalSolved: 150,
+    score: 2500,
+    easySolved: 80,
+    mediumSolved: 50,
+    hardSolved: 20,
+    schoolSolved: 30,
+    basicSolved: 45
+  };
+
   const platforms = [
     {
       name: "LeetCode",
@@ -31,9 +42,9 @@ const CodingPlatforms: React.FC = () => {
     {
       name: "GeeksforGeeks",
       logo: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png",
-      data: stats.geeksforgeeks,
-      loading: loading.geeksforgeeks,
-      error: errors.geeksforgeeks,
+      data: manualGeeksforGeeksData,
+      loading: false,
+      error: null,
       color: "from-green-400 to-emerald-500",
       bgColor: "bg-green-50 dark:bg-green-900/20",
       borderColor: "border-green-200 dark:border-green-800",
