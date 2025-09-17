@@ -7,7 +7,7 @@ const Education: React.FC = () => {
       degree: "Bachelor of Technology in Information Technology",
       institution: "Easwari Engineering College",
       duration: "2023 - 2027",
-      details: "Major in Software Engineering with minor in Mathematics",
+      details: " My college experience has been instrumental in shaping my core computer science knowledge, pushing me to think critically, build real-world projects, and stay ahead in the fast-evolving tech landscape",
       CGPA: ["8.3/10"],
       location: "Chennai, Tamilnadu, India"
     },
@@ -15,7 +15,7 @@ const Education: React.FC = () => {
       degree: "HSC",
       institution: "NS Boys Higher Secondary School",
       duration: "2016 - 2023",
-      details: "Bio-Maths",
+      details: "Completed schooling with a strong academic record in PCM,consistently demonstrating discipline,focus,and apassion for learning",
       achievements: ["88% in My 12th Board Exam", "Secured first rank in both Tamil and Physics at the school level"],
       location: "Theni, Tamilnadu, India"
     }

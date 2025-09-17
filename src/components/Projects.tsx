@@ -7,7 +7,7 @@ const Projects: React.FC = () => {
     {
       title: "AI Code Reviewer",
       description: "Multi-language support, bug detection, code quality rating, auto-fix option",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+      image: "/assets/Projects/AI Code Reviewer.png",
       technologies: ["React JS", "Tailwind CSS", "Monaco Editor", "Google Gemini API"],
       github: "https://github.com/Kishore-R45/CodeLens-AI-Code-Reviewer",
       demo: "https://code-lens-ai-code-reviewer.vercel.app/"
@@ -15,31 +15,31 @@ const Projects: React.FC = () => {
     {
       title: "Tamil Song Recommender",
       description: "Song similarity search, lyrics-based recommendation, Streamlit web app UI",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
-      technologies: ["Python", "Streamlit", "Pandas", "HuggingFace"],
+      image: "/assets/Projects/Tamil Song Recommender.png",
+      technologies: ["Python", "Streamlit", "Pandas", "HuggingFace","Sentence Transformer"],
       github: "https://github.com/Kishore-R45/Tamil-Song-Recommender",
       demo: "https://tamil-song-recommender-45.streamlit.app/"
     },
     {
       title: "Quiz App",
       description: "Powerful user authentication, Instant result, Cool user interface",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop",
-      technologies: ["Java", "JavaFX", "JDBC", "MySQL"],
+      image: "/assets/Projects/Quiz App.png",
+      technologies: ["Java", "JavaFX", "JDBC", "MySQL","Figma"],
       github: "https://github.com/Kishore-R45/Quiz-App--Final",
       demo: "https://github.com/Kishore-R45/Quiz-App--Final"
     },
     {
       title: "Online Voting System",
       description: "One Person - One Vote, Admin Dashboard, Live Vote Result Bar Chart",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop",
+      image: "/assets/Projects/Online Voting System.png",
       technologies: ["PHP", "MySQL", "Chart JS", "HTML", "CSS"],
       github: "https://github.com/Kishore-R45/Online-Voting-System",
       demo: "https://github.com/Kishore-R45/Online-Voting-System"
     },
     {
       title: "Weather App",
-      description: "City based weather, Humidity, Wind Speed",
-      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop",
+      description: "Shows city-based weather details — current temperature, humidity, and wind speed at a glance.",
+      image: "/assets/Projects/Weather App.png",
       technologies: ["HTML", "CSS", "JS", "Weather API"],
       github: "https://github.com/Kishore-R45/Weather-App",
       demo: "https://kishore-r45.github.io/Weather-App/"
@@ -47,7 +47,7 @@ const Projects: React.FC = () => {
     {
       title: "To-Do List",
       description: "A task management app to add, update, and track daily tasks with ease.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+      image: "/assets/Projects/To Do List.png",
       technologies: ["HTML", "CSS", "JS", "Local Storage"],
       github: "https://github.com/Kishore-R45/To-Do-List",
       demo: "https://kishore-r45.github.io/To-Do-List/"
