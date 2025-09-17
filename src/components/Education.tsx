@@ -73,13 +73,22 @@ const Education: React.FC = () => {
                     <div className="space-y-2">
                       <h4 className="text-gray-900 dark:text-white font-semibold text-sm">Key Achievements:</h4>
                       <ul className="space-y-1">
-                        {edu.achievements.map((achievement, achIndex) => (
+                        {edu.achievements && edu.achievements.map((achievement, achIndex) => (
                           <li
                             key={achIndex}
                             className="text-gray-700 dark:text-white/70 text-sm flex items-center"
                           >
                             <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
                             {achievement}
+                          </li>
+                        ))}
+                        {edu.CGPA && edu.CGPA.map((cgpa, cgpaIndex) => (
+                          <li
+                            key={cgpaIndex}
+                            className="text-gray-700 dark:text-white/70 text-sm flex items-center"
+                          >
+                            <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
+                            CGPA: {cgpa}
                           </li>
                         ))}
                       </ul>
