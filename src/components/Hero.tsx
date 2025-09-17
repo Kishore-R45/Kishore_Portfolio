@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   };
 
   const openResume = () => {
-    window.open('../public/assets/Resume-Final.pdf', '_blank');
+    window.open('/assets/Resume-Final.pdf', '_blank');
   };
 
   return (
@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-blue-200 dark:border-blue-400/30 hover:border-blue-400 dark:hover:border-blue-400/60 transition-all duration-500 hover:scale-105 group shadow-2xl">
                 <img
-                  src="../public/assets/myimage.jpg"
+                  src="/assets/myimage.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
