@@ -89,21 +89,21 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="flex items-center space-x-1 sm:space-x-4">
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 sm:p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 hover:scale-110 shadow-lg"
+              className="p-1.5 sm:p-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 hover:scale-110 shadow-lg"
             >
-              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {isDark ? <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
             </button>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
+              className="md:hidden p-1.5 sm:p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
             >
-              {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+              {isMobileMenuOpen ? <X className="w-4 h-4 sm:w-6 sm:h-6" /> : <Menu className="w-4 h-4 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
