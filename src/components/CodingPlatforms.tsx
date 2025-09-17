@@ -4,6 +4,7 @@ import { useCodingStats } from '../hooks/useCodingStats';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { Languages } from 'lucide-react';
 
 const CodingPlatforms: React.FC = () => {
   // Replace these with your actual usernames
@@ -18,13 +19,13 @@ const CodingPlatforms: React.FC = () => {
 
   // Manual GeeksforGeeks data - replace with your actual data
   const manualGeeksforGeeksData = {
-    totalSolved: 150,
-    score: 2500,
-    easySolved: 80,
-    mediumSolved: 50,
-    hardSolved: 20,
-    schoolSolved: 30,
-    basicSolved: 45
+    totalSolved: 192,
+    score: 389,
+    easySolved: 84,
+    mediumSolved: 43,
+    hardSolved: 1,
+    InstitutionRanking: 22,
+    Language: "Java"
   };
 
   const platforms = [
@@ -147,7 +148,7 @@ const CodingPlatforms: React.FC = () => {
         </Card>
         <Card className="bg-white/50 dark:bg-gray-700/50">
           <CardHeader className="pb-2">
-            <CardTitle className="text-lg">Score</CardTitle>
+            <CardTitle className="text-lg">Total Score</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-green-600">{data.score}</div>
@@ -181,12 +182,12 @@ const CodingPlatforms: React.FC = () => {
         <TabsContent value="category" className="mt-4">
           <div className="grid grid-cols-2 gap-2">
             <div className="text-center">
-              <Badge variant="outline">School</Badge>
-              <div className="text-lg font-bold mt-1">{data.schoolSolved}</div>
+              <Badge variant="outline">Institution Rank</Badge>
+              <div className="text-lg font-bold mt-1">{data.InstitutionRanking}</div>
             </div>
             <div className="text-center">
-              <Badge variant="outline">Basic</Badge>
-              <div className="text-lg font-bold mt-1">{data.basicSolved}</div>
+              <Badge variant="outline">Language</Badge>
+              <div className="text-lg font-bold mt-1">{data.Language}</div>
             </div>
           </div>
         </TabsContent>
@@ -382,12 +383,12 @@ const CodingPlatforms: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400">
             Stats are fetched in real-time from the respective platforms. 
             Please update your usernames in the component to see your actual data.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

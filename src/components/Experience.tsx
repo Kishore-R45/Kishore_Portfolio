@@ -14,8 +14,8 @@ const Experience: React.FC = () => {
       role: "Student Intern",
       company: "1M1B (1 Million for 1 Billion)",
       duration: "Aug/2025 - Oct/2025",
-      description: "Developed responsive web applications using modern frameworks, Collaborated with senior developers on enterprise-level projects, Gained hands-on experience in agile development methodologies",
-      technologies: ["Tableau", "CSS", "JavaScript", "React", "Node.js", "Git"]
+      description: "Waste Reduction Habit Tracker – A web-based sustainability platform built with MERN stack that enables users to log daily waste, track reduction trends, and receive personalized eco-tips. Integrated leaderboards, analytics dashboards, and gamification features to motivate eco-friendly habits and measure community impact.",
+      technologies: ["Tableau", "Node JS", "Express JS", "React JS", "Mongo DB"]
     }
   ];
 

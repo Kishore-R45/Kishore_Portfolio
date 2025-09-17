@@ -8,7 +8,7 @@ const Education: React.FC = () => {
       institution: "Easwari Engineering College",
       duration: "2023 - 2027",
       details: " My college experience has been instrumental in shaping my core computer science knowledge, pushing me to think critically, build real-world projects, and stay ahead in the fast-evolving tech landscape",
-      CGPA: ["8.3/10"],
+      achievements: ["CGPA: 8.3/10","SIH-2024 College level Finalist"],
       location: "Chennai, Tamilnadu, India"
     },
     {
@@ -73,7 +73,7 @@ const Education: React.FC = () => {
                     <div className="space-y-2">
                       <h4 className="text-gray-900 dark:text-white font-semibold text-sm">Key Achievements:</h4>
                       <ul className="space-y-1">
-                        {edu.achievements && edu.achievements.map((achievement, achIndex) => (
+                        {/* {edu.achievements && edu.achievements.map((achievement, achIndex) => (
                           <li
                             key={achIndex}
                             className="text-gray-700 dark:text-white/70 text-sm flex items-center"
@@ -81,14 +81,14 @@ const Education: React.FC = () => {
                             <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
                             {achievement}
                           </li>
-                        ))}
-                        {edu.CGPA && edu.CGPA.map((cgpa, cgpaIndex) => (
+                        ))} */}
+                        {edu.achievements && edu.achievements.map((cgpa, cgpaIndex) => (
                           <li
                             key={cgpaIndex}
                             className="text-gray-700 dark:text-white/70 text-sm flex items-center"
                           >
                             <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2" />
-                            CGPA: {cgpa}
+                            {cgpa}
                           </li>
                         ))}
                       </ul>

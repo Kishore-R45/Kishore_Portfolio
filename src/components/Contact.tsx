@@ -25,14 +25,14 @@ const Contact: React.FC = () => {
 
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_mcjfbmj',
+        'template_zfof5ri',
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        'YOUR_PUBLIC_KEY'
+        '4WM_UZiIKDCdRLeW6'
       );
 
       toast({
@@ -122,7 +122,7 @@ const Contact: React.FC = () => {
                   required
                   rows={6}
                   className="w-full px-4 py-3 bg-gray-50/80 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 resize-none"
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me about you..."
                 />
               </div>
 

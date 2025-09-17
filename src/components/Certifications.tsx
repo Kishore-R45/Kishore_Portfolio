@@ -11,25 +11,91 @@ const Certifications: React.FC = () => {
       title: "AWS Solutions Architect",
       issuer: "Amazon Web Services",
       date: "2024",
-      image: "https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=300&h=200&fit=crop"
+      image: "/Certificate-Portfolio/Oracle-Java.png"
     },
     {
       title: "Google Cloud Professional",
       issuer: "Google Cloud",
       date: "2023",
-      image: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=300&h=200&fit=crop"
+      image: "/Certificate-Portfolio/Hackerrank-ProblemSolving.png"
     },
     {
       title: "React Developer Certification",
       issuer: "Meta",
       date: "2023",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=300&h=200&fit=crop"
+      image: "/Certificate-Portfolio/Hackerrank-Java.jpg"
     },
     {
       title: "Docker Certified Associate",
       issuer: "Docker Inc.",
       date: "2022",
-      image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=300&h=200&fit=crop"
+      image: "/Certificate-Portfolio/Udemy Full-Stack.jpg"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/NPTEL-CompetetiveProgramming.jpg"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/NPTEL-Education.png"
+    },
+    {
+      title: "NPTEL Entrepernarship",
+      issuer: "NPTEL",
+      date: "2024",
+      image: "/Certificate-Portfolio/NPTEL-Entrepernarship.png"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/Introducction to IOT.png"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/MongoDB.png"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/Microsoft-AI.jpg"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/Flipkart.jpg"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/Datascience(Infosis).jpg"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/Coursera-Cloud(SaaS).png"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/Creasent-Figma.jpg"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/Creasent-Sector.jpg"
     }
   ];
 
