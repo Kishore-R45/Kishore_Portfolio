@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16 md:h-18">
           <div className="flex-shrink-0 min-w-0">
             <span className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate">
-              Portfolio
+              <Kishore/>
             </span>
           </div>
 
