@@ -12,7 +12,7 @@ const Education: React.FC = () => {
       location: "Chennai, Tamilnadu, India"
     },
     {
-      degree: "HSC",
+      degree: "Higher Secondary",
       institution: "NS Boys Higher Secondary School",
       duration: "2016 - 2023",
       details: "Completed schooling with a strong academic record in PCM,consistently demonstrating discipline,focus,and apassion for learning",
