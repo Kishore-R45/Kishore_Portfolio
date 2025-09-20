@@ -12,7 +12,7 @@ const CodingPlatforms: React.FC = () => {
     leetcode: 'Kishore2006_30', // Replace with your LeetCode username
     geeksforgeeks: 'kishore45', // Replace with your GFG username
     codeforces: 'kishoreramesh302006', // Replace with your Codeforces username
-    codechef: 'kishore2006' // Replace with your CodeChef username
+    codechef: 'kishore_r_2006' // Replace with your CodeChef username
   };
 
   const { stats, loading, errors } = useCodingStats(usernames);
