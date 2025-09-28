@@ -5,6 +5,14 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
+      title: "Waste Reduction Habit Tracker",
+      description: "Authentication & Security, Visualization, Community Leaderboard, Export reports",
+      image: "/assets/Projects/Waste Tracker.png",
+      technologies: ["React JS", "Tailwind CSS", "Node JS", "Express JS","Mongo DB"],
+      github: "https://github.com/Kishore-R45/Waste-Reduction-Habit-Tracker",
+      demo: "https://waste-reduction-habit-tracker.netlify.app/"
+    },
+    {
       title: "AI Code Reviewer",
       description: "Multi-language support, bug detection, code quality rating, auto-fix option",
       image: "/assets/Projects/AI Code Reviewer.png",
@@ -43,14 +51,6 @@ const Projects: React.FC = () => {
       technologies: ["HTML", "CSS", "JS", "Weather API"],
       github: "https://github.com/Kishore-R45/Weather-App",
       demo: "https://kishore-r45.github.io/Weather-App/"
-    },
-    {
-      title: "To-Do List",
-      description: "A task management app to add, update, and track daily tasks with ease.",
-      image: "/assets/Projects/To Do List.png",
-      technologies: ["HTML", "CSS", "JS", "Local Storage"],
-      github: "https://github.com/Kishore-R45/To-Do-List",
-      demo: "https://kishore-r45.github.io/To-Do-List/"
     }
   ];
 
