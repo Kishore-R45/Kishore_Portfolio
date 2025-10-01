@@ -20,6 +20,12 @@ const Certifications: React.FC = () => {
       image: "/Certificate-Portfolio/Hackerrank-ProblemSolving.png"
     },
     {
+      title: "Google Cloud Professional",
+      issuer: "Google Cloud",
+      date: "2023",
+      image: "/Certificate-Portfolio/Hackerrank-ProblemSolving-Intermidiate.png"
+    },
+    {
       title: "React Developer Certification",
       issuer: "Meta",
       date: "2023",
@@ -150,13 +156,21 @@ const Certifications: React.FC = () => {
           {/* Navigation Arrows */}
           <button
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-300"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 
+             p-2 rounded-full 
+             bg-gradient-to-r from-blue-600 to-purple-600 
+             text-white shadow-lg 
+             hover:opacity-90 transition-all duration-300 "
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-300"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 
+             p-2 rounded-full 
+             bg-gradient-to-r from-purple-600 to-blue-600 
+             text-white shadow-lg 
+             hover:opacity-90 transition-all duration-300"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
