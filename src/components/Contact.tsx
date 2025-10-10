@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
     { icon: Instagram, href: 'https://www.instagram.com/kishore.__.45/', label: 'Instagram' },
     { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61551556833388', label: 'Facebook' },
     { icon: Mail, href: 'mailto:kishoreramesh302006@gmail.com', label: 'Email' },
-    { icon: Phone, href: 'tel:+918807011265', label: 'Mobile No' },
+    { icon: Phone, href: 'tel:+918807011265', label: 'Mobile' },
   ];
 
   return (

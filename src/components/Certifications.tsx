@@ -14,6 +14,12 @@ const Certifications: React.FC = () => {
       image: "/Certificate-Portfolio/Oracle-Java.png"
     },
     {
+      title: "AWS Solutions Architect",
+      issuer: "Amazon Web Services",
+      date: "2024",
+      image: "/Certificate-Portfolio/Networking Basics.png"
+    },
+    {
       title: "Google Cloud Professional",
       issuer: "Google Cloud",
       date: "2023",
@@ -66,6 +72,12 @@ const Certifications: React.FC = () => {
       issuer: "Meta",
       date: "2023",
       image: "/Certificate-Portfolio/MongoDB.png"
+    },
+    {
+      title: "React Developer Certification",
+      issuer: "Meta",
+      date: "2023",
+      image: "/Certificate-Portfolio/IT-Workshop.png"
     },
     {
       title: "React Developer Certification",
