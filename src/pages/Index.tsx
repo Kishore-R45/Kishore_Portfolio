@@ -13,7 +13,7 @@ import CodingPlatforms from '../components/CodingPlatforms';
 import Certifications from '../components/Certifications';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import ParticleBackground from '../components/ParticleBackground';
+import DotGrid from '../components/DotGrid';
 import { ThemeProvider } from '../context/ThemeContext';
 
 const Index = () => {
@@ -28,8 +28,8 @@ const Index = () => {
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900 transition-all duration-500">
-        <ParticleBackground />
+      <div className="relative min-h-screen w-full overflow-x-hidden bg-white dark:bg-gray-950 transition-all duration-500">
+        <DotGrid baseColor="#5227FF" activeColor="#40ffaa" proximity={150} dotSize={12} gap={28} />
         <Navbar />
         <main className="relative z-10 w-full">
           <Hero />

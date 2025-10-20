@@ -1,0 +1,28 @@
+.animated-gradient-text {
+  position: relative;
+  display: inline-block;
+}
+
+.gradient-overlay {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background-size: 200% auto;
+  animation: gradient-shift linear infinite;
+  pointer-events: none;
+}
+
+.text-content {
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift linear infinite;
+  display: inline-block;
+}
+
+@keyframes gradient-shift {
+  to {
+    background-position: 200% center;
+  }
+}
