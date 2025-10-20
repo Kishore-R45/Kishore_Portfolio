@@ -1,8 +1,7 @@
 
 import React from 'react';
+import { TypeAnimation } from 'react-type-animation';
 import { Github, Linkedin, ArrowDown } from 'lucide-react';
-import GradientText from './GradientText';
-import RotatingText from './RotatingText';
 
 const Hero: React.FC = () => {
   const scrollToContact = () => {
@@ -37,23 +36,29 @@ const Hero: React.FC = () => {
           {/* Right Side - Content */}
           <div className="text-center lg:text-left order-2 lg:order-2" data-aos="fade-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
-              <GradientText colors={['#40ffaa', '#4079ff', '#40ffaa', '#4079ff', '#40ffaa']} animationSpeed={8}>
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Kishore R
-              </GradientText>
+              </span>
             </h1>
 
-            <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 h-12 sm:h-14 md:h-16 flex items-center justify-center lg:justify-start">
-              <span className="mr-2 text-gray-700 dark:text-gray-300">I am a</span>
-              <RotatingText
-                texts={[
-                  'Developer',
-                  'Problem Solver',
-                  'Gen AI Enthusiast',
-                  'UI/UX designer',
-                  'Video Editor'
+            <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 h-12 sm:h-14 md:h-16">
+              <TypeAnimation
+                sequence={[
+                  'I am a Developer',
+                  2000,
+                  'I am a Problem Solver',
+                  2000,
+                  'I am a Gen AI Enthusiast',
+                  2000,
+                  'I am a UI/UX designer',
+                  2000,
+                  'I am a Video Editor',
+                  2000,
                 ]}
-                rotationInterval={2000}
-                mainClassName="text-transparent bg-clip-text bg-gradient-to-r from-[#40ffaa] to-[#4079ff]"
+                wrapper="span"
+                speed={50}
+                className="text-gray-700 dark:text-gray-300"
+                repeat={Infinity}
               />
             </div>
 
