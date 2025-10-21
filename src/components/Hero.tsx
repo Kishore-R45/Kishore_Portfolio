@@ -2,6 +2,7 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { Github, Linkedin, ArrowDown } from 'lucide-react';
+import ProfileCard from './ProfileCard';
 
 const Hero: React.FC = () => {
   const scrollToContact = () => {
@@ -19,18 +20,20 @@ const Hero: React.FC = () => {
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 md:pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Side - Image */}
+          {/* Left Side - Profile Card */}
           <div className="flex justify-center lg:justify-start order-1 lg:order-1" data-aos="fade-right">
-            <div className="relative">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-blue-200 dark:border-blue-400/30 hover:border-blue-400 dark:hover:border-blue-400/60 transition-all duration-500 hover:scale-105 group shadow-2xl">
-                <img
-                  src="/assets/myimage.jpg"
-                  alt="Profile"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse" />
-            </div>
+            <ProfileCard
+              name="Kishore R"
+              title="Full-Stack Developer & Gen AI Enthusiast"
+              handle="kishore_r45"
+              status="Available for Work"
+              contactText="Contact Me"
+              avatarUrl="/assets/myimage.jpg"
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={false}
+              onContactClick={scrollToContact}
+            />
           </div>
 
           {/* Right Side - Content */}
