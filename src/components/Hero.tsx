@@ -2,7 +2,6 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
 import ProfileCard from "./ProfileCard";
-import GradientText from "./GradientText";
 
 const Hero: React.FC = () => {
   const scrollToContact = () => {
@@ -48,14 +47,10 @@ const Hero: React.FC = () => {
             data-aos="fade-left"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-left">
-              <GradientText
-                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                animationSpeed={5}
-                showBorder={false}
-                className="text-5xl font-bold"
-              >
-                Kishore R
-              </GradientText>
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                {" "}
+                Kishore R{" "}
+              </span>
             </h1>
 
             <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 h-12 sm:h-14 md:h-16">
