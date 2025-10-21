@@ -1,33 +1,39 @@
-
-import React from 'react';
-import { TypeAnimation } from 'react-type-animation';
-import { Github, Linkedin, ArrowDown } from 'lucide-react';
-import ProfileCard from './ProfileCard';
+import React from "react";
+import { TypeAnimation } from "react-type-animation";
+import { Github, Linkedin, ArrowDown } from "lucide-react";
+import ProfileCard from "./ProfileCard";
+import GradientText from "./GradientText";
 
 const Hero: React.FC = () => {
   const scrollToContact = () => {
-    const element = document.getElementById('contact');
+    const element = document.getElementById("contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const openResume = () => {
-    window.open('/assets/Resume Final.pdf', '_blank');
+    window.open("/assets/Resume Final.pdf", "_blank");
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 md:pt-24">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center pt-20 md:pt-24"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Profile Card */}
-          <div className="flex justify-center lg:justify-start order-1 lg:order-1" data-aos="fade-right">
+          <div
+            className="flex justify-center lg:justify-start order-1 lg:order-1"
+            data-aos="fade-right"
+          >
             <ProfileCard
               name="Kishore R"
               title="Full-Stack Developer & Gen AI Enthusiast"
-              handle="kishore_r45"
+              handle="Kishore_R"
               status="Available for Work"
-              contactText="Contact Me"
+              contactText="Hire Me"
               avatarUrl="/assets/myimage.jpg"
               showUserInfo={true}
               enableTilt={true}
@@ -37,25 +43,33 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right Side - Content */}
-          <div className="text-center lg:text-left order-2 lg:order-2" data-aos="fade-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+          <div
+            className="text-center lg:text-left order-2 lg:order-2"
+            data-aos="fade-left"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-left">
+              <GradientText
+                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                animationSpeed={5}
+                showBorder={false}
+                className="text-5xl font-bold"
+              >
                 Kishore R
-              </span>
+              </GradientText>
             </h1>
 
             <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 h-12 sm:h-14 md:h-16">
               <TypeAnimation
                 sequence={[
-                  'I am a Developer',
+                  "I am a Developer",
                   2000,
-                  'I am a Problem Solver',
+                  "I am a Problem Solver",
                   2000,
-                  'I am a Gen AI Enthusiast',
+                  "I am a Gen AI Enthusiast",
                   2000,
-                  'I am a UI/UX designer',
+                  "I am a UI/UX designer",
                   2000,
-                  'I am a Video Editor',
+                  "I am a Video Editor",
                   2000,
                 ]}
                 wrapper="span"
@@ -66,8 +80,9 @@ const Hero: React.FC = () => {
             </div>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto lg:mx-0">
-              Passionate Full-Stack Developer and Gen AI Enthusiast with expertise in Modern technologies. 
-              I love creating innovative solutions and bringing ideas to life through code.
+              Passionate Full-Stack Developer and Gen AI Enthusiast with
+              expertise in Modern technologies. I love creating innovative
+              solutions and bringing ideas to life through code.
             </p>
 
             {/* Social Links */}
@@ -109,7 +124,11 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Scroll Arrow */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2" data-aos="fade-up" data-aos-delay="1000">
+        <div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          data-aos="fade-up"
+          data-aos-delay="1000"
+        >
           <div className="animate-bounce">
             <ArrowDown className="w-6 h-6 text-gray-500 dark:text-gray-400" />
           </div>
