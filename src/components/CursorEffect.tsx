@@ -189,7 +189,7 @@ const CursorEffect: React.FC = () => {
           width: 26px;
           height: 26px;
           border-radius: 20px;
-          background-color: hsl(var(--primary));
+          background-color: white;
           transform-origin: center center;
           transform: translate(-50%, -50%);
         }
