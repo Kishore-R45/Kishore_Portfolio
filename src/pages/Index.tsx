@@ -14,7 +14,6 @@ import Certifications from '../components/Certifications';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import AnimatedBackground from '../components/AnimatedBackground';
-import CursorEffect from '../components/CursorEffect';
 import { ThemeProvider } from '../context/ThemeContext';
 
 const Index = () => {
@@ -31,7 +30,6 @@ const Index = () => {
     <ThemeProvider>
       <div className="relative min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900 transition-all duration-500">
         <AnimatedBackground />
-        <CursorEffect />
         <Navbar />
         <main className="relative z-10 w-full">
           <Hero />
