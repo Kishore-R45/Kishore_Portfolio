@@ -88,7 +88,11 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float-slow': 'float-slow 20s ease-in-out infinite',
+				'float-medium': 'float-medium 15s ease-in-out infinite',
+				'float-fast': 'float-fast 12s ease-in-out infinite',
+				'float-particle': 'float-particle 15s linear infinite'
 			}
 		}
 	},
