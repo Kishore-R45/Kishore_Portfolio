@@ -19,12 +19,12 @@ const CodingPlatforms: React.FC = () => {
 
   // Manual GeeksforGeeks data - replace with your actual data
   const manualGeeksforGeeksData = {
-    totalSolved: 224,
-    score: 495,
-    easySolved: 95,
-    mediumSolved: 64,
-    hardSolved: 1,
-    InstitutionRanking: 14,
+    totalSolved: 246,
+    score: 581,
+    easySolved: 99,
+    mediumSolved: 84,
+    hardSolved: 2,
+    InstitutionRanking: 12,
     Language: "Java"
   };
 
