@@ -16,7 +16,7 @@ const Education: React.FC = () => {
       institution: "NS Boys Higher Secondary School",
       duration: "2016 - 2023",
       details: "",
-      achievements: ["Physics, Chemistry, Maths, Biology","88% in My 12th Board Exam", "Secured first rank in both Tamil and Physics at the school level"],
+      achievements: ["88% in My 12th Board Exam - PCMB", "Secured first rank in both Tamil and Physics at the school level"],
       location: "Theni, Tamilnadu, India"
     }
   ];

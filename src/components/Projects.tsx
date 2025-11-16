@@ -13,12 +13,12 @@ const Projects: React.FC = () => {
       demo: "https://github.com/Kishore-R45/Smart_Agri"
     },
     {
-      title: "AI Code Reviewer",
+      title: "AI Code Reviewer-Code Lens",
       description: "Multi-language support, bug detection, code quality rating, auto-fix option",
       image: "/assets/Projects/AI Code Reviewer.png",
-      technologies: ["React JS", "Tailwind CSS", "Monaco Editor", "Google Gemini API"],
-      github: "https://github.com/Kishore-R45/CodeLens-AI-Code-Reviewer",
-      demo: "https://code-lens-ai-code-reviewer.vercel.app/"
+      technologies: ["React JS", "Tailwind CSS", "Monaco Editor", "Google Studio API"],
+      github: "https://github.com/Kishore-R45/AI-Code-Reviewer",
+      demo: "https://codelens-ai-code-reviewer.netlify.app/"
     },
     {
       title: "Tamil Song Recommender",
