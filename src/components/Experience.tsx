@@ -7,14 +7,14 @@ const Experience: React.FC = () => {
       role: "Student Intern",
       company: "1M1B (1 Million for 1 Billion)",
       duration: "Aug/2025 - Oct/2025",
-      description: "Waste Reduction Habit Tracker – A web-based sustainability platform built with MERN stack that enables users to log daily waste, track reduction trends, and receive personalized eco-tips. Integrated leaderboards, analytics dashboards, and gamification features to motivate eco-friendly habits and measure community impact.",
+      description: " Worked on MERN stack to build a Waste Reduction Habit Tracker for logging daily waste and tracking reduction trends. Integrated analytics dashboards, leaderboards, and gamification to promote eco-friendly habits and community impact.",
       technologies: ["Tableau", "Node JS", "Express JS", "React JS", "Mongo DB"]
     },
     {
       role: "Java Full Stack Developer Intern",
       company: "Zidio Development", 
       duration: "Jan/2025 - Apr/2025",
-      description: "Built a Expense tracker management with excellent features, Improved application performance by 25% through code optimization",
+      description: "Worked on Core Java and Spring Framework. Built scalable web apps with REST APIs,frontend integration, and deployed projects like an Expense Tracker with role-based access",
       technologies: ["Core Java", "Springboot", "React JS", "MongoDB"]
     }
   ];

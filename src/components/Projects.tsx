@@ -5,12 +5,12 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "Waste Reduction Habit Tracker",
-      description: "Authentication & Security, Visualization, Community Leaderboard, Export reports",
-      image: "/assets/Projects/Waste Tracker.png",
-      technologies: ["React JS", "Tailwind CSS", "Node JS", "Express JS","Mongo DB"],
-      github: "https://github.com/Kishore-R45/Waste-Reduction-Habit-Tracker",
-      demo: "https://waste-reduction-habit-tracker.netlify.app/"
+      title: "AI-based Farmer Advisory & Support System",
+      description: " Personalized crop advisory,Weather alerts,Market price updates,Fine-tuned chatbot,Expert connect",
+      image: "/assets/Projects/farmer_advisory_system.png",
+      technologies: ["Flutter", "REST APIs", "Node JS", "Express JS","MySQL","Mongo DB","Ex APIs","MicroServices"],
+      github: "https://github.com/Kishore-R45/Smart_Agri",
+      demo: "https://github.com/Kishore-R45/Smart_Agri"
     },
     {
       title: "AI Code Reviewer",
@@ -37,12 +37,12 @@ const Projects: React.FC = () => {
       demo: "https://github.com/Kishore-R45/Quiz-App--Final"
     },
     {
-      title: "Online Voting System",
-      description: "One Person - One Vote, Admin Dashboard, Live Vote Result Bar Chart",
-      image: "/assets/Projects/Online Voting System.png",
-      technologies: ["PHP", "MySQL", "Chart JS", "HTML", "CSS"],
-      github: "https://github.com/Kishore-R45/Online-Voting-System",
-      demo: "https://github.com/Kishore-R45/Online-Voting-System"
+      title: "Waste Reduction Habit Tracker",
+      description: "Authentication & Security, Visualization, Community Leaderboard, Export reports",
+      image: "/assets/Projects/Waste Tracker.png",
+      technologies: ["React JS", "Tailwind CSS", "Node JS", "Express JS","Mongo DB"],
+      github: "https://github.com/Kishore-R45/Waste-Reduction-Habit-Tracker",
+      demo: "https://waste-reduction-habit-tracker.netlify.app/"
     },
     {
       title: "Weather App",
