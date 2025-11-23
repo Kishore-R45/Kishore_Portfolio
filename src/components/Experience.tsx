@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Experience: React.FC = () => {
@@ -7,6 +6,7 @@ const Experience: React.FC = () => {
       role: "Student Intern",
       company: "1M1B (1 Million for 1 Billion)",
       duration: "Aug/2025 - Oct/2025",
+      type: "Internship",
       description: " Worked on MERN stack to build a Waste Reduction Habit Tracker for logging daily waste and tracking reduction trends. Integrated analytics dashboards, leaderboards, and gamification to promote eco-friendly habits and community impact.",
       technologies: ["Tableau", "Node JS", "Express JS", "React JS", "Mongo DB"]
     },
@@ -14,6 +14,7 @@ const Experience: React.FC = () => {
       role: "Java Full Stack Developer Intern",
       company: "Zidio Development", 
       duration: "Jan/2025 - Apr/2025",
+      type: "Internship",
       description: "Worked on Core Java and Spring Framework. Built scalable web apps with REST APIs,frontend integration, and deployed projects like an Expense Tracker with role-based access",
       technologies: ["Core Java", "Springboot", "React JS", "MongoDB"]
     }
@@ -53,6 +54,12 @@ const Experience: React.FC = () => {
                 {/* Content Card */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                   <div className="group relative p-6 rounded-2xl bg-white/90 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20">
+                    
+                    {/* ⭐ NEW ROLE TYPE BADGE */}
+                    <div className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-500/30">
+                      {exp.type}
+                    </div>
+
                     <div className="mb-4">
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-400 transition-colors duration-300">
                         {exp.role}
@@ -75,11 +82,13 @@ const Experience: React.FC = () => {
                         </span>
                       ))}
                     </div>
+
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

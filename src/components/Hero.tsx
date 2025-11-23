@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
             <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 h-12 sm:h-14 md:h-16">
               <TypeAnimation
                 sequence={[
-                  'I am a Developer',
+                  'I am a Software Engineer',
                   2000,
                   'I am a Problem Solver',
                   2000,
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
             </div>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto lg:mx-0">
-              Passionate Full-Stack Developer and Gen AI Enthusiast with expertise in Modern technologies. 
+              Passionate Software Engineer and Gen AI Enthusiast with expertise in Modern technologies. 
               I love creating innovative solutions and bringing ideas to life through code.
             </p>
 
