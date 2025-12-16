@@ -21,6 +21,14 @@ const Projects: React.FC = () => {
       demo: "https://codelens-ai-code-reviewer.netlify.app/"
     },
     {
+      title: "Smart Attendance Tracker App",
+      description: "Authentication & Security, Geo-Fencing, WIFI Verification, Device Verification, Calendar View",
+      image: "/assets/Projects/smart_attendance.jpg",
+      technologies: ["Flutter", "Node JS", "Express JS","Neon(PostgreSQL)", "Geo-Fence + WIFI"],
+      github: "https://github.com/Kishore-R45/Smart-Attendance-Frontend",
+      demo: "https://drive.google.com/drive/folders/1aOhpTcBoWELIZexZhUcijecQpk1WG12N?usp=sharing"
+    },
+    {
       title: "Tamil Song Recommender",
       description: "Song similarity search, lyrics-based recommendation, Streamlit web app UI",
       image: "/assets/Projects/Tamil Song Recommender.png",
@@ -35,14 +43,6 @@ const Projects: React.FC = () => {
       technologies: ["Java", "JavaFX", "JDBC", "MySQL","Figma"],
       github: "https://github.com/Kishore-R45/Quiz-App--Final",
       demo: "https://github.com/Kishore-R45/Quiz-App--Final"
-    },
-    {
-      title: "Waste Reduction Habit Tracker",
-      description: "Authentication & Security, Visualization, Community Leaderboard, Export reports",
-      image: "/assets/Projects/Waste Tracker.png",
-      technologies: ["React JS", "Tailwind CSS", "Node JS", "Express JS","Mongo DB"],
-      github: "https://github.com/Kishore-R45/Waste-Reduction-Habit-Tracker",
-      demo: "https://waste-reduction-habit-tracker.netlify.app/"
     },
     {
       title: "Weather App",
