@@ -20,6 +20,14 @@ const Certifications: React.FC = () => {
       image: "/Certificate-Portfolio/Innovate & Inspire - Season 13.png"
     },
     {
+      title: "CodeHolic - Hackathon",
+      image: "/Certificate-Portfolio/CodeHolic- Hackathon.png"
+    },
+    {
+      title: "Udemy Full stack",
+      image: "/Certificate-Portfolio/Udemy Full-Stack.jpg"
+    },
+    {
       title: "Hackerrank Problem solving basic",
       image: "/Certificate-Portfolio/Hackerrank-ProblemSolving.png"
     },
@@ -30,10 +38,6 @@ const Certifications: React.FC = () => {
     {
       title: "Hackerrank Java",
       image: "/Certificate-Portfolio/Hackerrank-Java.jpg"
-    },
-    {
-      title: "Udemy Full stack",
-      image: "/Certificate-Portfolio/Udemy Full-Stack.jpg"
     },
     {
       title: "NPTEL Competetive Programming",
@@ -50,6 +54,18 @@ const Certifications: React.FC = () => {
     {
       title: "NPTEL IOT",
       image: "/Certificate-Portfolio/Introducction to IOT.png"
+    },
+    {
+      title: "Python Essentials-1",
+      image: "/Certificate-Portfolio/Python Essentials-1.png"
+    },
+    {
+      title: "Python Essentials-2",
+      image: "/Certificate-Portfolio/Python Essentials-2.png"
+    },
+    {
+      title: "Modern AI-Cisco",
+      image: "/Certificate-Portfolio/Modern AI.png"
     },
     {
       title: "Mongo DB",
