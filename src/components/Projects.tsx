@@ -5,12 +5,20 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "AI-based Farmer Advisory & Support System",
+      title: "Farmer Advisory & Support System",
       description: " Personalized crop advisory,Weather alerts,Market price updates,Fine-tuned chatbot,Expert connect",
       image: "/assets/Projects/farmer_advisory_system.png",
       technologies: ["Flutter", "REST APIs", "Node JS", "Express JS","MySQL","Mongo DB","Ex APIs","MicroServices"],
       github: "https://github.com/Kishore-R45/Smart_Agri",
       demo: "https://github.com/Kishore-R45/Smart_Agri"
+    },
+    {
+      title: "Real-Time Freshness Indicator",
+      description: "AI-based image analysis system for predicting produce freshness and estimating shelf life under multiple storage conditions.",
+      image: "/assets/Projects/Freshness_Indicator.png",
+      technologies: ["React JS", "Tailwind CSS", "Flask", "REST APIs", "TensorFlow", "Keras","Docker","Hugging Face"],
+      github: "https://github.com/Kishore-R45/Real-Time-Freshness-Indicator",
+      demo: "https://kishore200630-freshness-indicator.hf.space/"
     },
     {
       title: "AI Code Reviewer-Code Lens",
@@ -44,14 +52,6 @@ const Projects: React.FC = () => {
       github: "https://github.com/Kishore-R45/Quiz-App--Final",
       demo: "https://github.com/Kishore-R45/Quiz-App--Final"
     },
-    {
-      title: "Weather App",
-      description: "Shows city-based weather details — current temperature, humidity, and wind speed at a glance.",
-      image: "/assets/Projects/Weather App.png",
-      technologies: ["HTML", "CSS", "JS", "Weather API"],
-      github: "https://github.com/Kishore-R45/Weather-App",
-      demo: "https://kishore-r45.github.io/Weather-App/"
-    }
   ];
 
   return (

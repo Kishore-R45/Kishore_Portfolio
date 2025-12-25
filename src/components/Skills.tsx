@@ -40,7 +40,7 @@ const Skills: React.FC = () => {
       color: "from-green-500 to-teal-500"
     },
     {
-      title: "AI/ML",
+      title: "AIML",
       skills: [
         { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
         { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
