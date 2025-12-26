@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Ready to collaborate? Let's discuss your project and bring your ideas to life.
+            Ready to collaborate?
           </p>
         </div>
 
