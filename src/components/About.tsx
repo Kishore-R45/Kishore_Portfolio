@@ -1,22 +1,23 @@
 
 import React from 'react';
+import { Code2, Zap, Rocket } from 'lucide-react';
 
 const About: React.FC = () => {
   const cards = [
     {
       title: "Who Am I?",
       content: "Passionate B.Tech IT student constantly learning new technologies. Problem solver specializing in Data Structures and Algorithms. Creative thinker with deep interest in Artificial Intelligence.",
-      icon: "👨‍💻"
+      icon: Code2
     },
     {
       title: "How I Work",
       content: "Build full-stack applications transforming ideas into practical solutions. Explore emerging technologies to develop innovative and efficient solutions. Turn complex challenges into simple, elegant, and effective solutions.",
-      icon: "⚡"
+      icon: Zap
     },
     {
       title: "What Drives Me",
       content: "Innovation and excellence drive everything I do. I'm passionate about emerging technologies, user experience, and creating solutions that make a real difference.",
-      icon: "🚀"
+      icon: Rocket
     }
   ];
 
@@ -42,7 +43,7 @@ const About: React.FC = () => {
               data-aos-delay={index * 200}
               className="group relative p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:scale-105 transition-all duration-300 w-full"
             >
-              <div className="text-3xl sm:text-4xl mb-4">{card.icon}</div>
+              <card.icon className="w-8 h-8 sm:w-10 sm:h-10 mb-4 text-violet-500" />
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                 {card.title}
               </h3>
