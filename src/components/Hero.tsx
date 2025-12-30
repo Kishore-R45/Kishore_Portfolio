@@ -1,9 +1,28 @@
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { Github, Linkedin, ArrowDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const imageRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!imageRef.current) return;
+    const rect = imageRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const tiltX = (y - centerY) / centerY * 15;
+    const tiltY = (centerX - x) / centerX * 15;
+    setTilt({ x: tiltX, y: tiltY });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -21,15 +40,27 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Image */}
           <div className="flex justify-center lg:justify-start order-1 lg:order-1" data-aos="fade-right">
-            <div className="relative">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-blue-200 dark:border-blue-400/30 hover:border-blue-400 dark:hover:border-blue-400/60 transition-all duration-500 hover:scale-105 group shadow-2xl">
+            <div 
+              ref={imageRef}
+              className="relative"
+              style={{ perspective: '1000px' }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div 
+                className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-blue-200 dark:border-blue-400/30 hover:border-blue-400 dark:hover:border-blue-400/60 transition-all duration-300 group shadow-2xl"
+                style={{
+                  transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(1.05)`,
+                  transition: 'transform 0.1s ease-out',
+                }}
+              >
                 <img
                   src="/assets/myimage.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse pointer-events-none" />
             </div>
           </div>
 
