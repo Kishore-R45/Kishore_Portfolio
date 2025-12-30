@@ -28,8 +28,8 @@ const Contact: React.FC = () => {
         'service_mcjfbmj',
         'template_zfof5ri',
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           message: formData.message,
         },
         '4WM_UZiIKDCdRLeW6'
