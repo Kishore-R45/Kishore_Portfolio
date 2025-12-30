@@ -52,17 +52,6 @@ const CodingPlatforms: React.FC = () => {
       profileUrl: `https://auth.geeksforgeeks.org/user/${usernames.geeksforgeeks}`
     },
     {
-      name: "Codeforces",
-      logo: "https://art.npanuhin.me/SVG/Codeforces/Codeforces.svg",
-      data: stats.codeforces,
-      loading: loading.codeforces,
-      error: errors.codeforces,
-      color: "from-blue-400 to-purple-500",
-      bgColor: "bg-blue-50 dark:bg-blue-900/20",
-      borderColor: "border-blue-200 dark:border-blue-800",
-      profileUrl: `https://codeforces.com/profile/${usernames.codeforces}`
-    },
-    {
       name: "CodeChef",
       logo: "https://cdn.codechef.com/images/cc-logo.svg",
       data: stats.codechef,
@@ -72,6 +61,17 @@ const CodingPlatforms: React.FC = () => {
       bgColor: "bg-amber-50 dark:bg-amber-900/20",
       borderColor: "border-amber-200 dark:border-amber-800",
       profileUrl: `https://www.codechef.com/users/${usernames.codechef}`
+    },
+    {
+      name: "Codeforces",
+      logo: "https://art.npanuhin.me/SVG/Codeforces/Codeforces.svg",
+      data: stats.codeforces,
+      loading: loading.codeforces,
+      error: errors.codeforces,
+      color: "from-blue-400 to-purple-500",
+      bgColor: "bg-blue-50 dark:bg-blue-900/20",
+      borderColor: "border-blue-200 dark:border-blue-800",
+      profileUrl: `https://codeforces.com/profile/${usernames.codeforces}`
     }
   ];
 
