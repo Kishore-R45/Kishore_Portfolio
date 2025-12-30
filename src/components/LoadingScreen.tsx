@@ -13,16 +13,16 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + 2;
+        return prev + 1;
       });
-    }, 30);
+    }, 43);
 
     // Show name after a brief delay
     const nameTimer = setTimeout(() => setShowName(true), 200);
 
     // Start fade out and complete
-    const fadeTimer = setTimeout(() => setFadeOut(true), 1800);
-    const completeTimer = setTimeout(() => onComplete(), 2300);
+    const fadeTimer = setTimeout(() => setFadeOut(true), 3800);
+    const completeTimer = setTimeout(() => onComplete(), 4300);
 
     return () => {
       clearInterval(progressInterval);
