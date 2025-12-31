@@ -3,6 +3,14 @@ import React from 'react';
 const Experience: React.FC = () => {
   const experiences = [
     {
+      role: "AIML Intern",
+      company: "Ethical Intelligent Technologies LLP",
+      duration: "Dec/2025 - Present",
+      type: "Internship",
+      description: " Built an AI-based industrial safety solution utilizing OpenCV and deep learning for PPE compliance, fall, and fire detection, with real-time monitoring via a frontend interface and scalable deployment on AWS Cloud. ",
+      technologies: ["OpenCV", "Deep Learning", "ResNet", "React JS", "RTSP", "Flask","Insightface"]
+    },
+    {
       role: "Student Intern",
       company: "1M1B (1 Million for 1 Billion)",
       duration: "Aug/2025 - Oct/2025",
