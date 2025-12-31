@@ -7,6 +7,40 @@ export const fetchLeetCodeStats = async (username: string) => {
     if (!response.ok) throw new Error('Failed to fetch LeetCode data');
     const data = await response.json();
     
+    // Fetch contest data using LeetCode GraphQL API
+    let contestRating = null;
+    let contestRanking = null;
+    
+    try {
+      const contestResponse = await fetch('https://leetcode.com/graphql', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: `
+            query userContestRankingInfo($username: String!) {
+              userContestRanking(username: $username) {
+                rating
+                globalRanking
+              }
+            }
+          `,
+          variables: { username }
+        })
+      });
+      
+      if (contestResponse.ok) {
+        const contestData = await contestResponse.json();
+        if (contestData?.data?.userContestRanking) {
+          contestRating = Math.round(contestData.data.userContestRanking.rating);
+          contestRanking = contestData.data.userContestRanking.globalRanking;
+        }
+      }
+    } catch (contestError) {
+      console.log('Contest data fetch failed, using fallback');
+    }
+    
     return {
       totalSolved: data.totalSolved || 0,
       easySolved: data.easySolved || 0,
@@ -15,7 +49,9 @@ export const fetchLeetCodeStats = async (username: string) => {
       acceptanceRate: data.acceptanceRate || 0,
       ranking: data.ranking || 'N/A',
       contributionPoints: data.contributionPoints || 0,
-      reputation: data.reputation || 0
+      reputation: data.reputation || 0,
+      contestRating: contestRating,
+      contestRanking: contestRanking
     };
   } catch (error) {
     console.error('LeetCode API Error:', error);

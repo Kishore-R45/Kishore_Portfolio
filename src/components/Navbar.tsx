@@ -61,9 +61,12 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-1 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           <div className="flex-shrink-0">
-            <span className="text-base sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <button
+              onClick={() => window.location.reload()}
+              className="text-base sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity cursor-pointer"
+            >
               {"<Kishore/>"}
-            </span>
+            </button>
           </div>
       
       
