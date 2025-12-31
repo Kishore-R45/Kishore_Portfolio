@@ -91,7 +91,7 @@ const CodingPlatforms: React.FC = () => {
             <CardTitle className="text-lg">Global Rank</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-orange-600">#{data.ranking?.toLocaleString()}</div>
+            <div className="text-2xl font-bold text-orange-600">{data.ranking?.toLocaleString()}</div>
           </CardContent>
         </Card>
       </div>
@@ -127,7 +127,7 @@ const CodingPlatforms: React.FC = () => {
             </div>
             <div className="flex justify-between">
               <span>Contest Ranking:</span>
-              <span className="font-bold">{data.contestRanking ? `#${data.contestRanking.toLocaleString()}` : 'N/A'}</span>
+              <span className="font-bold">{data.contestRanking ? `${data.contestRanking.toLocaleString()}` : 'N/A'}</span>
             </div>
           </div>
         </TabsContent>
