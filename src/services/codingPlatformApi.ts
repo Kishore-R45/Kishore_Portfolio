@@ -2,43 +2,29 @@
 // LeetCode API service
 export const fetchLeetCodeStats = async (username: string) => {
   try {
-    // Using a public LeetCode API endpoint
-    const response = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
-    if (!response.ok) throw new Error('Failed to fetch LeetCode data');
-    const data = await response.json();
+    // Fetch basic stats and contest data in parallel using alfa-leetcode-api
+    const [statsResponse, contestResponse] = await Promise.all([
+      fetch(`https://leetcode-stats-api.herokuapp.com/${username}`),
+      fetch(`https://alfa-leetcode-api.onrender.com/userContestRankingInfo/${username}`)
+    ]);
     
-    // Fetch contest data using LeetCode GraphQL API
+    if (!statsResponse.ok) throw new Error('Failed to fetch LeetCode data');
+    const data = await statsResponse.json();
+    
+    // Parse contest data
     let contestRating = null;
     let contestRanking = null;
     
-    try {
-      const contestResponse = await fetch('https://leetcode.com/graphql', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          query: `
-            query userContestRankingInfo($username: String!) {
-              userContestRanking(username: $username) {
-                rating
-                globalRanking
-              }
-            }
-          `,
-          variables: { username }
-        })
-      });
-      
-      if (contestResponse.ok) {
+    if (contestResponse.ok) {
+      try {
         const contestData = await contestResponse.json();
         if (contestData?.data?.userContestRanking) {
           contestRating = Math.round(contestData.data.userContestRanking.rating);
           contestRanking = contestData.data.userContestRanking.globalRanking;
         }
+      } catch (parseError) {
+        console.log('Contest data parse failed');
       }
-    } catch (contestError) {
-      console.log('Contest data fetch failed, using fallback');
     }
     
     return {
