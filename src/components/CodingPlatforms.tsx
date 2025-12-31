@@ -88,10 +88,10 @@ const CodingPlatforms: React.FC = () => {
         </Card>
         <Card className="bg-white/50 dark:bg-gray-700/50">
           <CardHeader className="pb-2">
-            <CardTitle className="text-lg">Acceptance Rate</CardTitle>
+            <CardTitle className="text-lg">Global Rank</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-orange-600">{data.acceptanceRate}%</div>
+            <div className="text-2xl font-bold text-orange-600">#{data.ranking?.toLocaleString()}</div>
           </CardContent>
         </Card>
       </div>
@@ -122,12 +122,12 @@ const CodingPlatforms: React.FC = () => {
         <TabsContent value="stats" className="mt-4">
           <div className="space-y-2">
             <div className="flex justify-between">
-              <span>Ranking:</span>
-              <span className="font-bold">{data.ranking}</span>
+              <span>Contest Rating:</span>
+              <span className="font-bold">{data.contestRating || 'N/A'}</span>
             </div>
             <div className="flex justify-between">
-              <span>Reputation:</span>
-              <span className="font-bold">{data.reputation}</span>
+              <span>Contest Ranking:</span>
+              <span className="font-bold">{data.contestRanking ? `#${data.contestRanking.toLocaleString()}` : 'N/A'}</span>
             </div>
           </div>
         </TabsContent>
