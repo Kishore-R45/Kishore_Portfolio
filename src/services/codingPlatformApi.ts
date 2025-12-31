@@ -1,26 +1,44 @@
 
-// LeetCode API service
+// LeetCode API service using alfa-leetcode-api
 export const fetchLeetCodeStats = async (username: string) => {
   try {
     // Fetch basic stats and contest data in parallel using alfa-leetcode-api
     const [statsResponse, contestResponse] = await Promise.all([
-      fetch(`https://leetcode-stats-api.herokuapp.com/${username}`),
-      fetch(`https://alfa-leetcode-api.onrender.com/userContestRankingInfo/${username}`)
+      fetch(`https://alfa-leetcode-api.onrender.com/${username}/solved`),
+      fetch(`https://alfa-leetcode-api.onrender.com/${username}/contest`)
     ]);
     
-    if (!statsResponse.ok) throw new Error('Failed to fetch LeetCode data');
-    const data = await statsResponse.json();
+    // Parse solved data
+    let totalSolved = 0, easySolved = 0, mediumSolved = 0, hardSolved = 0;
+    
+    if (statsResponse.ok) {
+      try {
+        const solvedData = await statsResponse.json();
+        totalSolved = solvedData.solvedProblem || 0;
+        easySolved = solvedData.easySolved || 0;
+        mediumSolved = solvedData.mediumSolved || 0;
+        hardSolved = solvedData.hardSolved || 0;
+      } catch (parseError) {
+        console.log('Solved data parse failed');
+      }
+    }
     
     // Parse contest data
     let contestRating = null;
     let contestRanking = null;
+    let globalRanking = null;
     
     if (contestResponse.ok) {
       try {
         const contestData = await contestResponse.json();
-        if (contestData?.data?.userContestRanking) {
-          contestRating = Math.round(contestData.data.userContestRanking.rating);
-          contestRanking = contestData.data.userContestRanking.globalRanking;
+        if (contestData?.contestRating) {
+          contestRating = Math.round(contestData.contestRating);
+        }
+        if (contestData?.contestGlobalRanking) {
+          contestRanking = contestData.contestGlobalRanking;
+        }
+        if (contestData?.totalParticipants) {
+          globalRanking = contestData.contestGlobalRanking;
         }
       } catch (parseError) {
         console.log('Contest data parse failed');
@@ -28,16 +46,13 @@ export const fetchLeetCodeStats = async (username: string) => {
     }
     
     return {
-      totalSolved: data.totalSolved || 0,
-      easySolved: data.easySolved || 0,
-      mediumSolved: data.mediumSolved || 0,
-      hardSolved: data.hardSolved || 0,
-      acceptanceRate: data.acceptanceRate || 0,
-      ranking: data.ranking || 'N/A',
-      contributionPoints: data.contributionPoints || 0,
-      reputation: data.reputation || 0,
-      contestRating: contestRating,
-      contestRanking: contestRanking
+      totalSolved,
+      easySolved,
+      mediumSolved,
+      hardSolved,
+      ranking: globalRanking || 'N/A',
+      contestRating,
+      contestRanking
     };
   } catch (error) {
     console.error('LeetCode API Error:', error);
