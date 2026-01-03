@@ -8,6 +8,7 @@ const Education: React.FC = () => {
       institution: "Easwari Engineering College",
       duration: "2023 - 2027",
       details: "",
+      present: true,
       achievements: ["CGPA: 8.3/10","SIH-2024 & 2025 College level Finalist"],
       location: "Chennai, Tamilnadu, India"
     },
@@ -16,6 +17,7 @@ const Education: React.FC = () => {
       institution: "NS Boys Higher Secondary School",
       duration: "2016 - 2023",
       details: "",
+      present: false,
       achievements: ["88% in My 12th Board Exam - PCMB", "Secured first rank in both Tamil and Physics at the school level"],
       location: "Theni, Tamilnadu, India"
     }
@@ -50,7 +52,11 @@ const Education: React.FC = () => {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full transform md:-translate-x-2 z-10 animate-pulse" />
+                <div className={`absolute left-4 md:left-1/2 w-4 h-4 rounded-full transform md:-translate-x-2 z-10 ${
+                  edu.present 
+                    ? 'bg-green-500 shadow-lg shadow-green-500/50 animate-pulse' 
+                    : 'bg-gradient-to-r from-purple-400 to-cyan-400'
+                }`} />
                 
                 {/* Content Card */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
