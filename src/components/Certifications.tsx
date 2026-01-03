@@ -12,8 +12,16 @@ const Certifications: React.FC = () => {
       image: "/Certificate-Portfolio/Oracle-Java.png"
     },
     {
-      title: "Cisco Networking Basics",
-      image: "/Certificate-Portfolio/Networking Basics.png"
+      title: "Cisco - CCNA Level 1",
+      image: "/Certificate-Portfolio/CCNA-1.png"
+    },
+    {
+      title: "Cisco - CCNA Level 2",
+      image: "/Certificate-Portfolio/CCNA-2.png"
+    },
+    {
+      title: "Cisco - CCNA Level 3",
+      image: "/Certificate-Portfolio/CCNA-3.png"
     },
     {
       title: "Innovate - Inspire Season 13 Winner",
