@@ -3,7 +3,7 @@ import React from 'react';
 const Experience: React.FC = () => {
   const experiences = [
     {
-      role: "AIML Intern",
+      role: "Software Developer Intern",
       company: "Ethical Intelligent Technologies LLP",
       duration: "Dec/2025 - Present",
       type: "Internship",
