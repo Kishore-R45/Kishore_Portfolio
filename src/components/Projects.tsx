@@ -34,7 +34,7 @@ const Projects: React.FC = () => {
       image: "/assets/Projects/smart_attendance.jpg",
       technologies: ["Flutter", "Node JS", "Express JS","Neon(PostgreSQL)", "Geo-Fence + WIFI"],
       github: "https://github.com/Kishore-R45/Smart-Attendance-Frontend",
-      demo: "https://drive.google.com/drive/folders/1aOhpTcBoWELIZexZhUcijecQpk1WG12N?usp=sharing"
+      demo: "https://github.com/Kishore-R45/Smart-Attendance-Frontend/tree/main/releases_apk"
     },
     {
       title: "Tamil Song Recommender",
