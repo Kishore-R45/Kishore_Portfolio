@@ -56,9 +56,9 @@ const Contact: React.FC = () => {
     { icon: Github, href: 'https://github.com/Kishore-R45', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/kishore-r45/', label: 'LinkedIn' },
     { icon: Instagram, href: 'https://www.instagram.com/kishore.__.45/', label: 'Instagram' },
-    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61551556833388', label: 'Facebook' },
+    // { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61551556833388', label: 'Facebook' },
     { icon: Mail, href: 'mailto:kishoreramesh302006@gmail.com', label: 'Email' },
-    { icon: Phone, href: 'tel:+918807011265', label: 'Mobile' },
+    // { icon: Phone, href: 'tel:+918807011265', label: 'Mobile' },
   ];
 
   return (

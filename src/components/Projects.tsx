@@ -5,12 +5,12 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "Farmer Advisory & Support System",
-      description: " Personalized crop advisory,Weather alerts,Market price updates,Fine-tuned chatbot,Expert connect",
-      image: "/assets/Projects/farmer_advisory_system.png",
-      technologies: ["Flutter", "REST APIs", "Node JS", "Express JS","MySQL","Mongo DB","Ex APIs","MicroServices"],
-      github: "https://github.com/Kishore-R45/Smart_Agri",
-      demo: "https://github.com/Kishore-R45/Smart_Agri"
+      title: "RAG Based Medical Chatbot",
+      description: "Medical PDF ingestion, Semantic search, Hallucination-free responses, RAG-based chatbot, Context-aware medical Q&A, Cloud based VectorDB",
+      image: "/assets/Projects/Medichat.png",
+      technologies: ["Langchain", "Flask", "Pinecone", "Sentence-Transformers","Meta-Llama 3","HuggingFace","Docker"],
+      github: "https://github.com/Kishore-R45/RAG-based-Medical-Chatbot",
+      demo: "https://kishore200630-medical-chatbot.hf.space"
     },
     {
       title: "Real-Time Freshness Indicator",
@@ -37,12 +37,12 @@ const Projects: React.FC = () => {
       demo: "https://github.com/Kishore-R45/Smart-Attendance-Frontend/tree/main/releases_apk"
     },
     {
-      title: "Tamil Song Recommender",
-      description: "Song similarity search, lyrics-based recommendation, Streamlit web app UI",
-      image: "/assets/Projects/Tamil Song Recommender.png",
-      technologies: ["Python", "Streamlit", "Pandas", "HuggingFace","Sentence Transformer"],
-      github: "https://github.com/Kishore-R45/Tamil-Song-Recommender",
-      demo: "https://tamil-song-recommender-45.streamlit.app/"
+      title: "Farmer Advisory & Support System",
+      description: " Personalized crop advisory,Weather alerts,Market price updates,Fine-tuned chatbot,Expert connect",
+      image: "/assets/Projects/farmer_advisory_system.png",
+      technologies: ["Flutter", "REST APIs", "Node JS", "Express JS","MySQL","Mongo DB","Ex APIs","MicroServices"],
+      github: "https://github.com/Kishore-R45/Smart_Agri",
+      demo: "https://github.com/Kishore-R45/Smart_Agri"
     },
     {
       title: "Quiz App",

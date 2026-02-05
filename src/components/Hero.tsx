@@ -77,9 +77,9 @@ const Hero: React.FC = () => {
                 sequence={[
                   'I am a Software Engineer',
                   2000,
-                  'I am a Problem Solver',
+                  'I am a Gen AI Enthusiast',
                   2000,
-                  'I am a AIML Enthusiast',
+                  'I am a Problem Solver',
                   2000,
                   'I am a UI/UX designer',
                   2000,
@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
             </div>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto lg:mx-0">
-              Passionate Software Engineer and AIML Enthusiast with expertise in Modern technologies. 
+              Passionate Software Engineer and Gen AI Enthusiast with expertise in Modern technologies. 
               I love creating innovative solutions and bringing ideas to life through code.
             </p>
 

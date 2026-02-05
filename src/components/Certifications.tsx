@@ -48,6 +48,10 @@ const Certifications: React.FC = () => {
       image: "/Certificate-Portfolio/Hackerrank-Java.jpg"
     },
     {
+      title: "December of Algorithms",
+      image: "/Certificate-Portfolio/DOA.png"
+    },
+    {
       title: "NPTEL Competetive Programming",
       image: "/Certificate-Portfolio/NPTEL-CompetetiveProgramming.jpg"
     },
