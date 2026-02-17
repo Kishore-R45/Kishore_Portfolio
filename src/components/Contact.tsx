@@ -56,31 +56,28 @@ const Contact: React.FC = () => {
     { icon: Github, href: 'https://github.com/Kishore-R45', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/kishore-r45/', label: 'LinkedIn' },
     { icon: Instagram, href: 'https://www.instagram.com/kishore.__.45/', label: 'Instagram' },
-    // { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61551556833388', label: 'Facebook' },
     { icon: Mail, href: 'mailto:kishoreramesh302006@gmail.com', label: 'Email' },
-    // { icon: Phone, href: 'tel:+918807011265', label: 'Mobile' },
   ];
 
   return (
-    <section id="contact" className="py-20 relative bg-gradient-to-br from-green-50 via-teal-50 to-cyan-50 dark:from-gray-900 dark:via-teal-900/30 dark:to-gray-900">
+    <section id="contact" className="py-20 relative bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to collaborate?
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <div data-aos="fade-right">
-            <form onSubmit={handleSubmit} className="space-y-6 p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-lg border-2 border-gray-200 dark:border-gray-700">
+            <form onSubmit={handleSubmit} className="space-y-6 p-8 bg-card/80 backdrop-blur-sm rounded-2xl shadow-lg border-2 border-border">
               <div>
-                <label htmlFor="name" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                <label htmlFor="name" className="block text-foreground font-medium mb-2">
                   Name
                 </label>
                 <input
@@ -90,13 +87,13 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-50/80 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-secondary/50 backdrop-blur-sm border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                <label htmlFor="email" className="block text-foreground font-medium mb-2">
                   Email
                 </label>
                 <input
@@ -106,13 +103,13 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-50/80 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-secondary/50 backdrop-blur-sm border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
+                <label htmlFor="message" className="block text-foreground font-medium mb-2">
                   Message
                 </label>
                 <textarea
@@ -122,7 +119,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-gray-50/80 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 bg-secondary/50 backdrop-blur-sm border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
                   placeholder="Tell me about you..."
                 />
               </div>
@@ -130,18 +127,17 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-violet-500 text-white font-semibold rounded-lg hover:from-cyan-400 hover:to-violet-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {isLoading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
 
-          {/* Contact Info & Social Links */}
           <div data-aos="fade-left" className="space-y-8">
-            <div className="p-8 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg border border-gray-200 dark:border-gray-700">
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Let's Connect</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+            <div className="p-8 rounded-2xl bg-card/80 backdrop-blur-sm shadow-lg border border-border">
+              <h3 className="text-2xl font-bold text-foreground mb-6">Let's Connect</h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
                 I'm always interested in new opportunities, challenging projects, and meaningful collaborations. 
                 Whether you have a question or just want to say hi, I'll try my best to get back to you!
               </p>
@@ -153,10 +149,10 @@ const Contact: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex flex-col items-center p-4 rounded-lg bg-gray-50/80 dark:bg-gray-700/80 backdrop-blur-sm hover:bg-blue-50 dark:hover:bg-blue-900/20 border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    className="group flex flex-col items-center p-4 rounded-lg bg-secondary/50 backdrop-blur-sm hover:bg-primary/10 border border-border hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   >
-                    <social.icon className="w-8 h-8 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-2" />
-                    <span className="text-xs text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
+                    <social.icon className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 mb-2" />
+                    <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                       {social.label}
                     </span>
                   </a>

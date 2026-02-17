@@ -6,21 +6,14 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Animate progress bar
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(progressInterval);
-          return 100;
-        }
+        if (prev >= 100) { clearInterval(progressInterval); return 100; }
         return prev + 1;
       });
     }, 43);
 
-    // Show name after a brief delay
     const nameTimer = setTimeout(() => setShowName(true), 200);
-
-    // Start fade out and complete
     const fadeTimer = setTimeout(() => setFadeOut(true), 3800);
     const completeTimer = setTimeout(() => onComplete(), 4300);
 
@@ -38,20 +31,18 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         fadeOut ? 'opacity-0' : 'opacity-100'
       }`}
     >
-      {/* Code brackets animation */}
       <div className="relative flex items-center gap-2 mb-8">
         <span 
-          className={`text-5xl md:text-7xl font-mono text-violet-500 transition-all duration-500 ${
+          className={`text-5xl md:text-7xl font-mono text-cyan-400 transition-all duration-500 ${
             showName ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
           }`}
-          style={{ animationDelay: '0.1s' }}
         >
           {'<'}
         </span>
         
         <div className="overflow-hidden">
           <span 
-            className={`text-3xl md:text-5xl font-bold bg-gradient-to-r from-violet-500 via-blue-500 to-violet-500 bg-clip-text text-transparent inline-block transition-all duration-700 ${
+            className={`text-3xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-500 bg-clip-text text-transparent inline-block transition-all duration-700 ${
               showName ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -60,24 +51,21 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         </div>
         
         <span 
-          className={`text-5xl md:text-7xl font-mono text-violet-500 transition-all duration-500 ${
+          className={`text-5xl md:text-7xl font-mono text-cyan-400 transition-all duration-500 ${
             showName ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
           }`}
-          style={{ animationDelay: '0.2s' }}
         >
           {'/>'}
         </span>
       </div>
 
-      {/* Loading bar */}
       <div className="w-48 md:w-64 h-1 bg-muted rounded-full overflow-hidden">
         <div 
-          className="h-full bg-gradient-to-r from-violet-500 to-blue-500 rounded-full transition-all duration-100 ease-out"
+          className="h-full bg-gradient-to-r from-cyan-400 to-violet-500 rounded-full transition-all duration-100 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-      {/* Loading text */}
       <p className={`mt-4 text-sm text-muted-foreground font-mono transition-opacity duration-300 ${
         showName ? 'opacity-100' : 'opacity-0'
       }`}>
@@ -89,12 +77,11 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         </span>
       </p>
 
-      {/* Floating particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 rounded-full bg-violet-500/20"
+            className="absolute w-2 h-2 rounded-full bg-cyan-400/20"
             style={{
               left: `${15 + i * 15}%`,
               bottom: '-10px',
