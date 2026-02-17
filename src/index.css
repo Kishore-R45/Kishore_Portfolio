@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-weight: 600;
+}
+
 @keyframes float-particle {
   0%, 100% {
     transform: translateY(0) translateX(0);
