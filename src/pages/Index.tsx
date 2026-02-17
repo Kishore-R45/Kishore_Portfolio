@@ -28,7 +28,7 @@ const Index = () => {
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900 transition-all duration-500">
+      <div className="relative min-h-screen w-full overflow-x-hidden bg-background transition-all duration-500">
         <AnimatedBackground />
         <Navbar />
         <main className="relative z-10 w-full">

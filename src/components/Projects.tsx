@@ -55,15 +55,15 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 relative bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 dark:from-gray-900 dark:via-purple-900/30 dark:to-gray-900">
+    <section id="projects" className="py-20 relative bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work and technical achievements.
           </p>
         </div>
@@ -74,7 +74,7 @@ const Projects: React.FC = () => {
               key={index}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              className="group relative overflow-hidden rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:scale-105"
+              className="group relative overflow-hidden rounded-2xl bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl border border-border hover:border-primary/30 transition-all duration-300 hover:scale-105"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -82,14 +82,14 @@ const Projects: React.FC = () => {
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -97,7 +97,7 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full border border-blue-200 dark:border-blue-800"
+                      className="px-3 py-1 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
                     >
                       {tech}
                     </span>
@@ -109,7 +109,7 @@ const Projects: React.FC = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg border-2 border-transparent hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:from-cyan-400 hover:to-blue-400 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-cyan-500/20"
                   >
                     <Github className="w-4 h-4" />
                     <span className="text-sm font-medium">Code</span>
@@ -118,7 +118,7 @@ const Projects: React.FC = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-600 to-teal-600 text-white rounded-lg border-2 border-transparent hover:from-green-700 hover:to-teal-700 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-lg hover:from-violet-400 hover:to-purple-400 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-violet-500/20"
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span className="text-sm font-medium">Demo</span>
@@ -129,13 +129,12 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* More Projects Link */}
         <div className="text-center" data-aos="fade-up">
           <a
             href="https://github.com/Kishore-R45/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 hover:scale-105 hover:shadow-lg transition-all duration-300"
+            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-violet-500 text-white font-semibold rounded-lg hover:from-cyan-400 hover:to-violet-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
           >
             <Github className="w-5 h-5" />
             <span>More Projects on GitHub</span>

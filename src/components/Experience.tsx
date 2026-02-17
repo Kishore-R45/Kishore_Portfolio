@@ -36,18 +36,17 @@ const Experience: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
               Work Experience
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-white/70 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             My professional journey and the impact I've made along the way.
           </p>
         </div>
 
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-400 to-cyan-400 transform md:-translate-x-0.5" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 to-violet-500 transform md:-translate-x-0.5" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -59,31 +58,28 @@ const Experience: React.FC = () => {
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
-                {/* Timeline Dot */}
                 <div className={`absolute left-4 md:left-1/2 w-4 h-4 rounded-full transform md:-translate-x-2 z-10 ${
                   exp.present 
                     ? 'bg-green-500 shadow-lg shadow-green-500/50 animate-pulse' 
-                    : 'bg-gradient-to-r from-purple-400 to-cyan-400'
+                    : 'bg-gradient-to-r from-cyan-400 to-violet-500'
                 }`} />
                 
-                {/* Content Card */}
                 <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <div className="group relative p-6 rounded-2xl bg-white/90 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 hover:bg-white dark:hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20">
+                  <div className="group relative p-6 rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/10">
                     
-                    {/* ⭐ NEW ROLE TYPE BADGE */}
-                    <div className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-500/30">
+                    <div className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">
                       {exp.type}
                     </div>
 
                     <div className="mb-4">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-purple-400 transition-colors duration-300">
+                      <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                         {exp.role}
                       </h3>
-                      <p className="text-lg text-purple-500 dark:text-purple-400 font-semibold">{exp.company}</p>
-                      <p className="text-gray-600 dark:text-white/60">{exp.duration}</p>
+                      <p className="text-lg text-cyan-400 font-semibold">{exp.company}</p>
+                      <p className="text-muted-foreground">{exp.duration}</p>
                     </div>
                     
-                    <p className="text-gray-700 dark:text-white/70 mb-4 leading-relaxed">
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
                       {exp.description}
                     </p>
                     
@@ -91,19 +87,17 @@ const Experience: React.FC = () => {
                       {exp.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 text-sm bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 rounded-full border border-purple-300 dark:border-purple-500/30 hover:bg-purple-200 dark:hover:bg-purple-500/30 transition-colors duration-300"
+                          className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors duration-300"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
-
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>
