@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { Github, Linkedin, ArrowDown } from 'lucide-react';
@@ -47,8 +46,20 @@ const Hero: React.FC = () => {
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
             >
+              {/* Subtle Background Glow */}
               <div 
-                className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-300 group shadow-2xl shadow-cyan-500/20"
+                className="absolute inset-0 rounded-full pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(6,182,212,0.4), rgba(139,92,246,0.4))',
+                  filter: 'blur(20px)',
+                  transform: 'scale(1.08)',
+                  animation: 'subtleGlow 4s ease-in-out infinite',
+                }}
+              />
+
+              {/* Image Container */}
+              <div 
+                className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-300 group shadow-2xl shadow-cyan-500/20"
                 style={{
                   transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(1.05)`,
                   transition: 'transform 0.1s ease-out',
@@ -60,7 +71,6 @@ const Hero: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 to-violet-500/20 animate-pulse pointer-events-none" />
             </div>
           </div>
 
@@ -143,6 +153,20 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Subtle Glow Animation */}
+      <style>{`
+        @keyframes subtleGlow {
+          0%, 100% {
+            opacity: 0.3;
+            transform: scale(1.05);
+          }
+          50% {
+            opacity: 0.5;
+            transform: scale(1.1);
+          }
+        }
+      `}</style>
     </section>
   );
 };
