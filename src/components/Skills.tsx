@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useMemo, useCallback } from "react";
 
 interface Skill {
   name: string;
@@ -32,275 +32,403 @@ const allSkills: Skill[] = [
   { name: "Pinecone", icon: "https://avatars.githubusercontent.com/u/54333248?s=200&v=4" },
 ];
 
-interface OrbitalIcon {
-  skill: Skill;
-  orbitTilt: number;
-  angle: number;
-  speed: number;
+/* ---- evenly distribute N points on a sphere (Fibonacci) ---- */
+function fibonacciSphere(count: number) {
+  const pts: { x: number; y: number; z: number }[] = [];
+  const golden = Math.PI * (3 - Math.sqrt(5));
+  for (let i = 0; i < count; i++) {
+    const y = 1 - (i / (count - 1)) * 2;
+    const r = Math.sqrt(1 - y * y);
+    const theta = golden * i;
+    pts.push({ x: Math.cos(theta) * r, y, z: Math.sin(theta) * r });
+  }
+  return pts;
 }
 
 const Skills: React.FC = () => {
-  const animRef = useRef<number>(0);
-  const iconsRef = useRef<OrbitalIcon[]>([]);
-  const hoveredRef = useRef<number | null>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [iconPositions, setIconPositions] = useState<{ x: number; y: number; z: number; scale: number }[]>([]);
+  /* ---- refs for animation-loop values ---- */
+  const containerRef = useRef<HTMLDivElement>(null);
+  const animId = useRef(0);
+  const angleRef = useRef(0);
+  const velocityRef = useRef(0.005);
+  const isDraggingRef = useRef(false);
+  const lastXRef = useRef(0);
+  const pausedRef = useRef(false);
+  const lastMoveTimeRef = useRef(0);
 
-  // Larger globe dimensions
-  const W = 700;
-  const H = 500;
-  const cx = W / 2;
-  const cy = H / 2;
-  const rx = 260; // oblate: wider
-  const ry = 160; // oblate: shorter (flattened)
+  /* ---- state ---- */
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [dragging, setDragging] = useState(false);
+  const [positions, setPositions] = useState<
+    { x: number; y: number; z: number; scale: number }[]
+  >([]);
 
-  useEffect(() => {
-    const orbits: OrbitalIcon[] = allSkills.map((skill, i) => {
-      const orbitGroup = i % 4;
-      const tiltAngles = [12, 42, 68, 105];
-      return {
-        skill,
-        orbitTilt: tiltAngles[orbitGroup],
-        angle: (i / allSkills.length) * Math.PI * 2 + (orbitGroup * Math.PI / 4),
-        speed: 0.0025 + (i % 3) * 0.0008,
-      };
-    });
-    iconsRef.current = orbits;
+  /* ---- constants ---- */
+  const SIZE = 520;
+  const RADIUS = 210;
+  const PERSPECTIVE = 700;
+  const BASE_SPEED = 0.004;
+  const DRAG_SENSITIVITY = 0.008;
+  const FRICTION = 0.97;
+  const MAX_VELOCITY = 0.12;
+  const TILT = 0.38; // ~22° Earth-like axial tilt
 
-    const animate = () => {
-      const updated = iconsRef.current.map((icon, i) => {
-        if (hoveredRef.current !== i) {
-          icon.angle += icon.speed;
-        }
-        const tiltRad = (icon.orbitTilt * Math.PI) / 180;
-        const ox = Math.cos(icon.angle) * rx;
-        const oy = Math.sin(icon.angle) * ry * Math.cos(tiltRad);
-        const oz = Math.sin(icon.angle) * Math.sin(tiltRad);
-        const x = cx + ox;
-        const y = cy + oy;
-        const scale = 0.6 + 0.4 * ((oz + 1) / 2);
-        return { x, y, z: oz, scale };
-      });
-      setIconPositions([...updated]);
-      animRef.current = requestAnimationFrame(animate);
-    };
+  const basePoints = useMemo(() => fibonacciSphere(allSkills.length), []);
 
-    animRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animRef.current);
+  /* ---- pointer handlers ---- */
+  const handleDown = useCallback((clientX: number) => {
+    isDraggingRef.current = true;
+    setDragging(true);
+    setHoveredIdx(null);
+    pausedRef.current = false;
+    lastXRef.current = clientX;
+    lastMoveTimeRef.current = Date.now();
   }, []);
 
-  const sortedIndices = iconPositions.length
+  const handleMove = useCallback((clientX: number) => {
+    if (!isDraggingRef.current) return;
+    const delta = clientX - lastXRef.current;
+    lastXRef.current = clientX;
+    const v = delta * DRAG_SENSITIVITY;
+    velocityRef.current = Math.max(-MAX_VELOCITY, Math.min(MAX_VELOCITY, v));
+    angleRef.current += velocityRef.current;
+    lastMoveTimeRef.current = Date.now();
+  }, []);
+
+  const handleUp = useCallback(() => {
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+    setDragging(false);
+    // reduce momentum if pointer was stationary before release
+    if (Date.now() - lastMoveTimeRef.current > 80) {
+      velocityRef.current *= 0.15;
+    }
+  }, []);
+
+  /* ---- attach mouse & touch events ---- */
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const onMD = (e: MouseEvent) => {
+      e.preventDefault();
+      handleDown(e.clientX);
+    };
+    const onMM = (e: MouseEvent) => handleMove(e.clientX);
+    const onMU = () => handleUp();
+
+    const onTS = (e: TouchEvent) => handleDown(e.touches[0].clientX);
+    const onTM = (e: TouchEvent) => {
+      e.preventDefault();
+      handleMove(e.touches[0].clientX);
+    };
+    const onTE = () => handleUp();
+
+    el.addEventListener("mousedown", onMD);
+    window.addEventListener("mousemove", onMM);
+    window.addEventListener("mouseup", onMU);
+    el.addEventListener("touchstart", onTS, { passive: true });
+    el.addEventListener("touchmove", onTM, { passive: false });
+    el.addEventListener("touchend", onTE);
+
+    return () => {
+      el.removeEventListener("mousedown", onMD);
+      window.removeEventListener("mousemove", onMM);
+      window.removeEventListener("mouseup", onMU);
+      el.removeEventListener("touchstart", onTS);
+      el.removeEventListener("touchmove", onTM);
+      el.removeEventListener("touchend", onTE);
+    };
+  }, [handleDown, handleMove, handleUp]);
+
+  /* ---- main animation loop ---- */
+  useEffect(() => {
+    const cosT = Math.cos(TILT);
+    const sinT = Math.sin(TILT);
+
+    const tick = () => {
+      // auto-rotate when not dragging & not hovering
+      if (!isDraggingRef.current && !pausedRef.current) {
+        velocityRef.current *= FRICTION;
+        if (Math.abs(velocityRef.current) < BASE_SPEED) {
+          velocityRef.current =
+            velocityRef.current >= 0 ? BASE_SPEED : -BASE_SPEED;
+        }
+        angleRef.current += velocityRef.current;
+      }
+
+      const cosA = Math.cos(angleRef.current);
+      const sinA = Math.sin(angleRef.current);
+
+      const next = basePoints.map((p) => {
+        // Y-axis rotation (Earth spin)
+        const x1 = p.x * cosA + p.z * sinA;
+        const y1 = p.y;
+        const z1 = -p.x * sinA + p.z * cosA;
+        // X-axis tilt
+        const x2 = x1;
+        const y2 = y1 * cosT - z1 * sinT;
+        const z2 = y1 * sinT + z1 * cosT;
+        // perspective
+        const fov = PERSPECTIVE / (PERSPECTIVE + z2 * RADIUS);
+        return {
+          x: SIZE / 2 + x2 * RADIUS * fov,
+          y: SIZE / 2 + y2 * RADIUS * fov,
+          z: z2,
+          scale: fov,
+        };
+      });
+
+      setPositions(next);
+      animId.current = requestAnimationFrame(tick);
+    };
+
+    animId.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId.current);
+  }, [basePoints]);
+
+  /* ---- z-sort for correct layering ---- */
+  const sorted = positions.length
     ? [...Array(allSkills.length).keys()].sort(
-        (a, b) => (iconPositions[a]?.z ?? 0) - (iconPositions[b]?.z ?? 0)
+        (a, b) => positions[a].z - positions[b].z
       )
     : [];
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden" style={{ background: "transparent" }}>
+    <section
+      id="skills"
+      className="py-20 relative overflow-hidden"
+      style={{ background: "transparent" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* heading */}
         <div className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
-              Skills & Technologies
+              Skills &amp; Technologies
             </span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Technologies orbiting my core universe — hover to identify each one.
+          <p className="text-gray-400 text-lg max-w-xl mx-auto">
+            Technologies orbiting my universe — drag to spin, hover to explore.
           </p>
         </div>
 
-        {/* Globe Container */}
-        <div className="flex justify-center items-center" data-aos="fade-up" data-aos-delay="200">
+        {/* globe */}
+        <div
+          className="flex justify-center items-center"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div
+            ref={containerRef}
             className="relative select-none"
-            style={{ width: W, height: H }}
+            style={{
+              width: SIZE,
+              height: SIZE,
+              cursor: dragging ? "grabbing" : "grab",
+            }}
           >
-            {/* SVG Globe */}
-            <svg
-              width={W}
-              height={H}
-              viewBox={`0 0 ${W} ${H}`}
-              className="absolute inset-0"
-              style={{ overflow: "visible" }}
-            >
-              <defs>
-                <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="rgba(6,182,212,0.14)" />
-                  <stop offset="65%" stopColor="rgba(139,92,246,0.07)" />
-                  <stop offset="100%" stopColor="transparent" />
-                </radialGradient>
-                <radialGradient id="globeBody" cx="38%" cy="32%" r="68%">
-                  <stop offset="0%" stopColor="rgba(6,182,212,0.18)" />
-                  <stop offset="45%" stopColor="rgba(20,18,60,0.5)" />
-                  <stop offset="100%" stopColor="rgba(8,6,28,0.7)" />
-                </radialGradient>
-                <radialGradient id="globeShine" cx="32%" cy="26%" r="38%">
-                  <stop offset="0%" stopColor="rgba(255,255,255,0.1)" />
-                  <stop offset="100%" stopColor="transparent" />
-                </radialGradient>
-                <filter id="globeGlowFilter">
-                  <feGaussianBlur stdDeviation="5" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
+            {/* ambient glow */}
+            <div
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: RADIUS * 2 + 120,
+                height: RADIUS * 2 + 120,
+                left: SIZE / 2 - RADIUS - 60,
+                top: SIZE / 2 - RADIUS - 60,
+                background:
+                  "radial-gradient(circle, rgba(6,182,212,0.07) 0%, rgba(139,92,246,0.04) 40%, transparent 70%)",
+              }}
+            />
 
-              {/* Soft outer aura */}
-              <ellipse cx={cx} cy={cy} rx={rx + 60} ry={ry + 45} fill="url(#globeGlow)" />
+            {/* sphere shell */}
+            <div
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: RADIUS * 2,
+                height: RADIUS * 2,
+                left: SIZE / 2 - RADIUS,
+                top: SIZE / 2 - RADIUS,
+                background:
+                  "radial-gradient(circle at 30% 25%, rgba(6,182,212,0.12), rgba(139,92,246,0.06) 40%, rgba(8,6,28,0.4) 75%, rgba(4,2,20,0.55))",
+                border: "1px solid rgba(6,182,212,0.20)",
+                boxShadow:
+                  "0 0 80px rgba(6,182,212,0.08), inset 0 0 100px rgba(139,92,246,0.05)",
+              }}
+            />
 
-              {/* Orbit ring guides */}
-              {[12, 42, 68, 105].map((tilt, i) => {
-                const tiltRad = (tilt * Math.PI) / 180;
-                return (
-                  <ellipse
-                    key={i}
-                    cx={cx}
-                    cy={cy}
-                    rx={rx}
-                    ry={ry * Math.abs(Math.cos(tiltRad))}
-                    fill="none"
-                    stroke={i % 2 === 0 ? "rgba(6,182,212,0.15)" : "rgba(139,92,246,0.13)"}
-                    strokeWidth="1"
-                    strokeDasharray="5 7"
-                  />
-                );
-              })}
+            {/* specular highlight */}
+            <div
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: RADIUS * 1.05,
+                height: RADIUS * 1.05,
+                left: SIZE / 2 - RADIUS * 0.68,
+                top: SIZE / 2 - RADIUS * 0.72,
+                background:
+                  "radial-gradient(circle at 40% 35%, rgba(255,255,255,0.08), transparent 55%)",
+              }}
+            />
 
-              {/* Globe body */}
-              <ellipse cx={cx} cy={cy} rx={rx - 30} ry={ry - 15} fill="url(#globeBody)" />
-
-              {/* Globe border */}
-              <ellipse
-                cx={cx}
-                cy={cy}
-                rx={rx - 30}
-                ry={ry - 15}
-                fill="none"
-                stroke="rgba(6,182,212,0.35)"
-                strokeWidth="1.5"
-                filter="url(#globeGlowFilter)"
-              />
-
-              {/* Shine */}
-              <ellipse cx={cx} cy={cy} rx={rx - 30} ry={ry - 15} fill="url(#globeShine)" />
-
-              {/* Equator */}
-              <ellipse
-                cx={cx}
-                cy={cy}
-                rx={rx - 30}
-                ry={5}
-                fill="none"
-                stroke="rgba(6,182,212,0.2)"
-                strokeWidth="1"
-                strokeDasharray="4 6"
-              />
-
-              {/* Latitude lines */}
-              {[-35, 35].map((lat, i) => (
-                <ellipse
-                  key={i}
-                  cx={cx}
-                  cy={cy + (lat / 90) * (ry - 15)}
-                  rx={(rx - 30) * Math.cos((lat * Math.PI) / 180)}
-                  ry={3.5}
-                  fill="none"
-                  stroke="rgba(139,92,246,0.14)"
-                  strokeWidth="0.8"
-                  strokeDasharray="3 6"
-                />
-              ))}
-            </svg>
-
-            {/* Skill icons */}
-            {sortedIndices.map((i) => {
-              const pos = iconPositions[i];
+            {/* skill icons */}
+            {sorted.map((i) => {
+              const pos = positions[i];
               const skill = allSkills[i];
               if (!pos) return null;
-              const isHovered = hoveredIndex === i;
-              const opacity = 0.45 + 0.55 * ((pos.z + 1) / 2);
+
+              const isHovered = hoveredIdx === i;
+              const alpha = 0.12 + 0.88 * ((pos.z + 1) / 2);
+              const behind = pos.z < -0.15;
 
               return (
                 <div
-                  key={i}
+                  key={skill.name}
                   className="absolute"
                   style={{
                     left: pos.x,
                     top: pos.y,
-                    transform: `translate(-50%, -50%) scale(${isHovered ? 1.6 : pos.scale})`,
-                    zIndex: isHovered ? 100 : Math.round(pos.z * 50 + 50),
-                    opacity: isHovered ? 1 : opacity,
-                    transition: "transform 0.2s ease, opacity 0.2s ease",
-                    cursor: "pointer",
+                    transform: `translate(-50%,-50%) scale(${
+                      isHovered ? 1.5 : pos.scale
+                    })`,
+                    zIndex: isHovered ? 200 : Math.round((pos.z + 1) * 50),
+                    opacity: isHovered ? 1 : alpha,
+                    transition: "transform .2s ease, opacity .2s ease",
+                    pointerEvents: behind || dragging ? "none" : "auto",
+                    cursor: behind || dragging ? "default" : "pointer",
                   }}
                   onMouseEnter={() => {
-                    hoveredRef.current = i;
-                    setHoveredIndex(i);
+                    if (isDraggingRef.current) return;
+                    setHoveredIdx(i);
+                    pausedRef.current = true;
                   }}
                   onMouseLeave={() => {
-                    hoveredRef.current = null;
-                    setHoveredIndex(null);
+                    setHoveredIdx(null);
+                    pausedRef.current = false;
                   }}
                 >
+                  {/* icon circle */}
                   <div
-                    className="relative flex items-center justify-center rounded-full"
+                    className="flex items-center justify-center rounded-full"
                     style={{
-                      width: 46,
-                      height: 46,
+                      width: 50,
+                      height: 50,
                       background: isHovered
-                        ? "rgba(6,182,212,0.2)"
-                        : "rgba(10,8,32,0.7)",
-                      border: `1.5px solid ${isHovered ? "rgba(6,182,212,0.9)" : "rgba(139,92,246,0.35)"}`,
+                        ? "rgba(6,182,212,0.22)"
+                        : "rgba(10,8,32,0.85)",
+                      border: `1.5px solid ${
+                        isHovered
+                          ? "rgba(6,182,212,0.9)"
+                          : `rgba(139,92,246,${
+                              0.1 + 0.3 * ((pos.z + 1) / 2)
+                            })`
+                      }`,
                       boxShadow: isHovered
-                        ? "0 0 16px rgba(6,182,212,0.7), 0 0 32px rgba(139,92,246,0.35)"
-                        : "0 2px 8px rgba(0,0,0,0.5)",
+                        ? "0 0 24px rgba(6,182,212,0.55), 0 0 48px rgba(139,92,246,0.2)"
+                        : `0 2px 12px rgba(0,0,0,${
+                            0.25 + 0.4 * ((1 - pos.z) / 2)
+                          })`,
                       backdropFilter: "blur(6px)",
                     }}
                   >
                     <img
                       src={skill.icon}
                       alt={skill.name}
-                      style={{ width: 26, height: 26, objectFit: "contain" }}
+                      draggable={false}
+                      style={{
+                        width: 28,
+                        height: 28,
+                        objectFit: "contain",
+                      }}
                     />
+                  </div>
 
-                    {/* Tooltip */}
-                    {isHovered && (
-                      <div
-                        className="absolute pointer-events-none whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-medium"
+                  {/* tooltip */}
+                  {isHovered && (
+                    <div
+                      className="absolute pointer-events-none whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-semibold"
+                      style={{
+                        bottom: "calc(100% + 12px)",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        background:
+                          "linear-gradient(135deg, rgba(6,182,212,0.95), rgba(139,92,246,0.90))",
+                        color: "#fff",
+                        boxShadow: "0 4px 20px rgba(6,182,212,0.45)",
+                        letterSpacing: "0.04em",
+                        animation: "tooltipIn .2s ease",
+                      }}
+                    >
+                      {skill.name}
+                      <span
                         style={{
-                          bottom: "calc(100% + 8px)",
+                          position: "absolute",
+                          bottom: -5,
                           left: "50%",
                           transform: "translateX(-50%)",
-                          background: "rgba(6,182,212,0.95)",
-                          color: "#fff",
-                          boxShadow: "0 0 12px rgba(6,182,212,0.5)",
-                          letterSpacing: "0.03em",
+                          width: 0,
+                          height: 0,
+                          borderLeft: "6px solid transparent",
+                          borderRight: "6px solid transparent",
+                          borderTop: "6px solid rgba(6,182,212,0.95)",
                         }}
-                      >
-                        {skill.name}
-                        <div
-                          className="absolute left-1/2"
-                          style={{
-                            bottom: -5,
-                            transform: "translateX(-50%)",
-                            width: 0,
-                            height: 0,
-                            borderLeft: "5px solid transparent",
-                            borderRight: "5px solid transparent",
-                            borderTop: "6px solid rgba(6,182,212,0.95)",
-                          }}
-                        />
-                      </div>
-                    )}
-                  </div>
+                      />
+                    </div>
+                  )}
                 </div>
               );
             })}
+
+            {/* drag-to-rotate hint */}
+            <div
+              className="absolute left-1/2 flex items-center gap-2 pointer-events-none"
+              style={{
+                bottom: 6,
+                transform: "translateX(-50%)",
+                opacity: dragging ? 0 : 0.5,
+                transition: "opacity .3s",
+              }}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-gray-500"
+              >
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+              <span className="text-gray-500 text-xs tracking-wide">
+                drag to rotate
+              </span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-gray-500"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* tooltip animation keyframe */}
+      <style>{`
+        @keyframes tooltipIn {
+          from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+      `}</style>
     </section>
   );
 };
