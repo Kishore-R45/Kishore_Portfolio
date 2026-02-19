@@ -7,7 +7,7 @@ const Certifications: React.FC = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const certifications = [
-    { title: "Oracle Java", image: "/Certificate-Portfolio/Oracle-Java.png" },
+    { title: "Oracle SE 17 Java Developer", image: "/Certificate-Portfolio/Oracle SE 17 Java Developer.png" },
     { title: "Cisco - CCNA Level 1", image: "/Certificate-Portfolio/CCNA-1.png" },
     { title: "Cisco - CCNA Level 2", image: "/Certificate-Portfolio/CCNA-2.png" },
     { title: "Cisco - CCNA Level 3", image: "/Certificate-Portfolio/CCNA-3.png" },
@@ -29,6 +29,7 @@ const Certifications: React.FC = () => {
     { title: "IT - Workshop", image: "/Certificate-Portfolio/IT-Workshop.png" },
     { title: "Microsoft AI Certification", image: "/Certificate-Portfolio/Microsoft-AI.jpg" },
     { title: "Flipkart GRID", image: "/Certificate-Portfolio/Flipkart.jpg" },
+    { title: "Oracle Java", image: "/Certificate-Portfolio/Oracle-Java.png" },
     { title: "Infosis Data science", image: "/Certificate-Portfolio/Datascience(Infosis).jpg" },
     { title: "Coursera Cloud computing", image: "/Certificate-Portfolio/Coursera-Cloud(SaaS).png" },
     { title: "Cresent - Figma", image: "/Certificate-Portfolio/Creasent-Figma.jpg" },

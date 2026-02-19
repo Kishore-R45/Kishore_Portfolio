@@ -5,12 +5,12 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "RAG Based Medical Chatbot",
-      description: "Medical PDF ingestion, Semantic search, Hallucination-free responses, RAG-based chatbot, Context-aware medical Q&A, Cloud based VectorDB",
-      image: "/assets/Projects/Medichat.png",
-      technologies: ["Langchain", "Flask", "Pinecone", "Sentence-Transformers","Meta-Llama 3","HuggingFace","Docker"],
-      github: "https://github.com/Kishore-R45/RAG-based-Medical-Chatbot",
-      demo: "https://kishore200630-medical-chatbot.hf.space"
+      title: "Personal Information Chaos Manager",
+      description: "Developed a production-grade document intelligence system enabling secure upload, semantic search,OCR-based extraction, and AI-driven question answering with zero-hallucination.",
+      image: "/assets/Projects/Info_Vault.png",
+      technologies: ["React JS","Tailwind CSS", "Flask","AWS S3", "Pinecone", "MongoDB","HuggingFace","Docker"],
+      github: "https://github.com/Kishore-R45/Personal-Information-Chaos-Manager",
+      demo: "https://info-vault-45.vercel.app"
     },
     {
       title: "Real-Time Freshness Indicator",
@@ -21,12 +21,12 @@ const Projects: React.FC = () => {
       demo: "https://kishore200630-freshness-indicator.hf.space/"
     },
     {
-      title: "AI Code Reviewer-Code Lens",
-      description: "Multi-language support, bug detection, code quality rating, auto-fix option",
-      image: "/assets/Projects/AI Code Reviewer.png",
-      technologies: ["React JS", "Tailwind CSS", "Monaco Editor", "Google Studio API"],
-      github: "https://github.com/Kishore-R45/AI-Code-Reviewer",
-      demo: "https://codelens-ai-code-reviewer.netlify.app/"
+      title: "RAG Based Medical Chatbot",
+      description: "Medical PDF ingestion, Semantic search, Hallucination-free responses, RAG-based chatbot, Context-aware medical Q&A, Cloud based VectorDB",
+      image: "/assets/Projects/Medichat.png",
+      technologies: ["Langchain", "Flask", "Pinecone", "Sentence-Transformers","Meta-Llama 3","HuggingFace","Docker"],
+      github: "https://github.com/Kishore-R45/RAG-based-Medical-Chatbot",
+      demo: "https://kishore200630-medical-chatbot.hf.space"
     },
     {
       title: "Smart Attendance Tracker App",
@@ -45,12 +45,12 @@ const Projects: React.FC = () => {
       demo: "https://github.com/Kishore-R45/Smart_Agri"
     },
     {
-      title: "Quiz App",
-      description: "Powerful user authentication, Instant result, Cool user interface",
-      image: "/assets/Projects/Quiz App.png",
-      technologies: ["Java", "JavaFX", "JDBC", "MySQL","Figma"],
-      github: "https://github.com/Kishore-R45/Quiz-App--Final",
-      demo: "https://github.com/Kishore-R45/Quiz-App--Final"
+      title: "AI Code Reviewer-Code Lens",
+      description: "Multi-language support, bug detection, code quality rating, auto-fix option",
+      image: "/assets/Projects/AI Code Reviewer.png",
+      technologies: ["React JS", "Tailwind CSS", "Monaco Editor", "Google Studio API"],
+      github: "https://github.com/Kishore-R45/AI-Code-Reviewer",
+      demo: "https://codelens-ai-code-reviewer.netlify.app/"
     },
   ];
 

@@ -16,8 +16,8 @@ const CodingPlatforms: React.FC = () => {
   const { stats, loading, errors } = useCodingStats(usernames);
 
   const manualGeeksforGeeksData = {
-    totalSolved: 246,
-    score: 581,
+    totalSolved: 263,
+    score: 634,
     easySolved: 99,
     mediumSolved: 84,
     hardSolved: 2,

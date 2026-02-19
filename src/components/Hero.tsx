@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
   };
 
   const openResume = () => {
-    window.open('/assets/Kishore Resume Final.pdf', '_blank');
+    window.open('/assets/Kishore_Resume.pdf', '_blank');
   };
 
   return (
@@ -90,6 +90,8 @@ const Hero: React.FC = () => {
                   'I am a Gen AI Enthusiast',
                   2000,
                   'I am a Problem Solver',
+                  2000,
+                  'I am a Java Developer',
                   2000,
                   'I am a UI/UX designer',
                   2000,
