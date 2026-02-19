@@ -70,11 +70,11 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
         showName ? 'opacity-100' : 'opacity-0'
       }`}>
         <span className="inline-block animate-pulse">Loading portfolio</span>
-        <span className="inline-flex w-8">
+        {/* <span className="inline-flex w-8">
           <span className="animate-bounce" style={{ animationDelay: '0ms' }}>.</span>
           <span className="animate-bounce" style={{ animationDelay: '150ms' }}>.</span>
           <span className="animate-bounce" style={{ animationDelay: '300ms' }}>.</span>
-        </span>
+        </span> */}
       </p>
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
