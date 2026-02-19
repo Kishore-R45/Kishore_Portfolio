@@ -54,29 +54,28 @@ const Experience: React.FC = () => {
                 key={index}
                 data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
                 data-aos-delay={index * 200}
-                className={`relative flex items-center ${
+                className={`relative flex items-start md:items-center ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
-                <div className={`absolute left-4 md:left-1/2 w-4 h-4 rounded-full transform md:-translate-x-2 z-10 ${
+                <div className={`absolute left-4 md:left-1/2 w-4 h-4 rounded-full transform md:-translate-x-2 z-10 mt-7 md:mt-0 ${
                   exp.present 
                     ? 'bg-green-500 shadow-lg shadow-green-500/50 animate-pulse' 
                     : 'bg-gradient-to-r from-cyan-400 to-violet-500'
                 }`} />
                 
-                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                <div className={`ml-12 md:ml-0 md:w-1/2 w-full min-w-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                   <div className="group relative p-6 rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/10">
                     
-                    <div className="absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">
-                      {exp.type}
-                    </div>
-
-                    <div className="mb-4">
-                      <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                    <div className="mb-8 pr-2">
+                      <div className="inline-flex mb-2 px-3 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">
+                        {exp.type}
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 break-words">
                         {exp.role}
                       </h3>
-                      <p className="text-lg text-cyan-400 font-semibold">{exp.company}</p>
-                      <p className="text-muted-foreground">{exp.duration}</p>
+                      <p className="text-base sm:text-lg text-cyan-400 font-semibold break-words">{exp.company}</p>
+                      <p className="text-muted-foreground text-sm sm:text-base">{exp.duration}</p>
                     </div>
                     
                     <p className="text-muted-foreground mb-4 leading-relaxed">

@@ -73,8 +73,8 @@ const Skills: React.FC = () => {
   >([]);
 
   /* ---- constants (responsive) ---- */
-  const SIZE = isMobile ? 320 : 520;
-  const RADIUS = isMobile ? 128 : 210;
+  const SIZE = isMobile ? 300 : 520;
+  const RADIUS = isMobile ? 108 : 210;
   const PERSPECTIVE = 700;
   const BASE_SPEED = 0.004;
   const DRAG_SENSITIVITY = 0.008;
