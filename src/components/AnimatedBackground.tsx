@@ -130,30 +130,6 @@ const AnimatedBackground: React.FC = () => {
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl animate-float-slow bg-gradient-to-br from-cyan-500/40 to-blue-600/10" />
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full opacity-15 blur-3xl animate-float-medium bg-gradient-to-br from-violet-500/30 to-purple-600/20" />
         <div className="absolute bottom-0 left-1/4 w-[550px] h-[550px] rounded-full opacity-15 blur-3xl animate-float-fast bg-gradient-to-br from-cyan-400/30 to-indigo-500/20" />
-        {/* Distant planet */}
-        <div
-          className="absolute rounded-full opacity-10"
-          style={{
-            width: 180,
-            height: 180,
-            top: '12%',
-            right: '8%',
-            background: 'radial-gradient(circle at 35% 35%, rgba(139,92,246,0.7), rgba(30,20,80,0.8))',
-            boxShadow: '0 0 60px rgba(139,92,246,0.3)',
-          }}
-        />
-        {/* Another planet */}
-        <div
-          className="absolute rounded-full opacity-8"
-          style={{
-            width: 90,
-            height: 90,
-            bottom: '20%',
-            right: '18%',
-            background: 'radial-gradient(circle at 40% 30%, rgba(6,182,212,0.6), rgba(20,10,60,0.8))',
-            boxShadow: '0 0 30px rgba(6,182,212,0.25)',
-          }}
-        />
       </div>
     </>
   );
