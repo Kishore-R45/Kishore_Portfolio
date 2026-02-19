@@ -72,9 +72,15 @@ const Skills: React.FC = () => {
     { x: number; y: number; z: number; scale: number }[]
   >([]);
 
-  /* ---- constants (responsive) ---- */
+  /* ---- constants (responsive) — use refs so the animation loop always sees latest values ---- */
   const SIZE = isMobile ? 300 : 520;
-  const RADIUS = isMobile ? 108 : 210;
+  const RADIUS = isMobile ? 95 : 210;
+  const sizeRef = useRef(SIZE);
+  const radiusRef = useRef(RADIUS);
+  useEffect(() => {
+    sizeRef.current = SIZE;
+    radiusRef.current = RADIUS;
+  }, [SIZE, RADIUS]);
   const PERSPECTIVE = 700;
   const BASE_SPEED = 0.004;
   const DRAG_SENSITIVITY = 0.008;
@@ -150,12 +156,15 @@ const Skills: React.FC = () => {
     };
   }, [handleDown, handleMove, handleUp]);
 
-  /* ---- main animation loop ---- */
+  /* ---- main animation loop — uses refs so it always reads latest SIZE/RADIUS ---- */
   useEffect(() => {
     const cosT = Math.cos(TILT);
     const sinT = Math.sin(TILT);
 
     const tick = () => {
+      const R = radiusRef.current;
+      const S = sizeRef.current;
+
       // auto-rotate when not dragging & not hovering
       if (!isDraggingRef.current && !pausedRef.current) {
         velocityRef.current *= FRICTION;
@@ -179,10 +188,10 @@ const Skills: React.FC = () => {
         const y2 = y1 * cosT - z1 * sinT;
         const z2 = y1 * sinT + z1 * cosT;
         // perspective
-        const fov = PERSPECTIVE / (PERSPECTIVE + z2 * RADIUS);
+        const fov = PERSPECTIVE / (PERSPECTIVE + z2 * R);
         return {
-          x: SIZE / 2 + x2 * RADIUS * fov,
-          y: SIZE / 2 + y2 * RADIUS * fov,
+          x: S / 2 + x2 * R * fov,
+          y: S / 2 + y2 * R * fov,
           z: z2,
           scale: fov,
         };

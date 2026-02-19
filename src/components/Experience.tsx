@@ -67,13 +67,15 @@ const Experience: React.FC = () => {
                 <div className={`ml-12 md:ml-0 md:w-1/2 w-full min-w-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                   <div className="group relative p-6 rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/10">
                     
-                    <div className="mb-8 pr-2">
-                      <div className="inline-flex mb-2 px-3 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">
-                        {exp.type}
+                    <div className="mb-4">
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 break-words flex-1">
+                          {exp.role}
+                        </h3>
+                        <div className="shrink-0 px-3 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary border border-primary/20">
+                          {exp.type}
+                        </div>
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 break-words">
-                        {exp.role}
-                      </h3>
                       <p className="text-base sm:text-lg text-cyan-400 font-semibold break-words">{exp.company}</p>
                       <p className="text-muted-foreground text-sm sm:text-base">{exp.duration}</p>
                     </div>
