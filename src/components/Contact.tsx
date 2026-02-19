@@ -73,8 +73,8 @@ const Contact: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div data-aos="fade-right">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div data-aos="fade-right" className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="space-y-6 p-8 bg-card/80 backdrop-blur-sm rounded-2xl shadow-lg border-2 border-border">
               <div>
                 <label htmlFor="name" className="block text-foreground font-medium mb-2">
@@ -134,7 +134,7 @@ const Contact: React.FC = () => {
             </form>
           </div>
 
-          <div data-aos="fade-left" className="space-y-8">
+          <div data-aos="fade-left" className="space-y-8 lg:col-span-2">
             <div className="p-8 rounded-2xl bg-card/80 backdrop-blur-sm shadow-lg border border-border">
               <h3 className="text-2xl font-bold text-foreground mb-6">Let's Connect</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">

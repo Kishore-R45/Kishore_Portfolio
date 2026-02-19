@@ -46,6 +46,15 @@ function fibonacciSphere(count: number) {
 }
 
 const Skills: React.FC = () => {
+  /* ---- responsive size ---- */
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   /* ---- refs for animation-loop values ---- */
   const containerRef = useRef<HTMLDivElement>(null);
   const animId = useRef(0);
@@ -63,9 +72,9 @@ const Skills: React.FC = () => {
     { x: number; y: number; z: number; scale: number }[]
   >([]);
 
-  /* ---- constants ---- */
-  const SIZE = 520;
-  const RADIUS = 210;
+  /* ---- constants (responsive) ---- */
+  const SIZE = isMobile ? 320 : 520;
+  const RADIUS = isMobile ? 128 : 210;
   const PERSPECTIVE = 700;
   const BASE_SPEED = 0.004;
   const DRAG_SENSITIVITY = 0.008;
