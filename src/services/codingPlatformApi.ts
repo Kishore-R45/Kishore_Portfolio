@@ -23,8 +23,11 @@ export const fetchLeetCodeStats = async (username: string) => {
       if (contestRes.ok) {
         try {
           const contestData = await contestRes.json();
-          contestRating = contestData.contestRating ? Math.round(contestData.contestRating) : null;
-          contestRanking = contestData.contestGlobalRanking || null;
+          const ucr = contestData.userContestRanking;
+          if (ucr) {
+            contestRating = ucr.rating ? Math.round(ucr.rating) : null;
+            contestRanking = ucr.globalRanking || null;
+          }
         } catch { /* ignore */ }
       }
 
