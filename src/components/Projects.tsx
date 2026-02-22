@@ -5,11 +5,11 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "Personal Information Chaos Manager",
+      title: "AI-Powered Document Intelligence System",
       description: "Developed a production-grade document intelligence system enabling secure upload, semantic search,OCR-based extraction, and AI-driven question answering with zero-hallucination.",
       image: "/assets/Projects/Info_Vault.png",
       technologies: ["React JS","Tailwind CSS", "Flask","AWS S3", "Pinecone", "MongoDB","HuggingFace","Docker"],
-      github: "https://github.com/Kishore-R45/Personal-Information-Chaos-Manager",
+      github: "https://github.com/Kishore-R45/AI-Powered-Document-Intelligence-System",
       demo: "https://info-vault-45.vercel.app"
     },
     {
