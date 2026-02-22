@@ -1,67 +1,49 @@
 
-// LeetCode API service using alfa-leetcode-api
+// LeetCode API service using leetcode-api-pied.vercel.app (primary) + leet-scrape (fallback)
 export const fetchLeetCodeStats = async (username: string) => {
   try {
-    // Fetch profile, solved stats and contest data in parallel using alfa-leetcode-api
-    const [profileResponse, statsResponse, contestResponse] = await Promise.all([
-      fetch(`https://alfa-leetcode-api.onrender.com/${username}`),
-      fetch(`https://alfa-leetcode-api.onrender.com/${username}/solved`),
-      fetch(`https://alfa-leetcode-api.onrender.com/${username}/contest`)
+    // Primary: leetcode-api-pied.vercel.app
+    const [userRes, contestRes] = await Promise.all([
+      fetch(`https://leetcode-api-pied.vercel.app/user/${username}`),
+      fetch(`https://leetcode-api-pied.vercel.app/user/${username}/contests`)
     ]);
-    
-    // Parse profile data for overall global ranking
-    let globalRanking = null;
-    
-    if (profileResponse.ok) {
-      try {
-        const profileData = await profileResponse.json();
-        globalRanking = profileData.ranking || null;
-      } catch (parseError) {
-        console.log('Profile data parse failed');
+
+    if (userRes.ok) {
+      const userData = await userRes.json();
+
+      const submitStats = userData.submitStats?.acSubmissionNum || [];
+      const totalSolved = submitStats.find((s: any) => s.difficulty === 'All')?.count || 0;
+      const easySolved = submitStats.find((s: any) => s.difficulty === 'Easy')?.count || 0;
+      const mediumSolved = submitStats.find((s: any) => s.difficulty === 'Medium')?.count || 0;
+      const hardSolved = submitStats.find((s: any) => s.difficulty === 'Hard')?.count || 0;
+      const ranking = userData.profile?.ranking || 'N/A';
+
+      let contestRating = null;
+      let contestRanking = null;
+      if (contestRes.ok) {
+        try {
+          const contestData = await contestRes.json();
+          contestRating = contestData.contestRating ? Math.round(contestData.contestRating) : null;
+          contestRanking = contestData.contestGlobalRanking || null;
+        } catch { /* ignore */ }
       }
+
+      return { totalSolved, easySolved, mediumSolved, hardSolved, ranking, contestRating, contestRanking };
     }
-    
-    // Parse solved data
-    let totalSolved = 0, easySolved = 0, mediumSolved = 0, hardSolved = 0;
-    
-    if (statsResponse.ok) {
-      try {
-        const solvedData = await statsResponse.json();
-        totalSolved = solvedData.solvedProblem || 0;
-        easySolved = solvedData.easySolved || 0;
-        mediumSolved = solvedData.mediumSolved || 0;
-        hardSolved = solvedData.hardSolved || 0;
-      } catch (parseError) {
-        console.log('Solved data parse failed');
-      }
-    }
-    
-    // Parse contest data
-    let contestRating = null;
-    let contestRanking = null;
-    
-    if (contestResponse.ok) {
-      try {
-        const contestData = await contestResponse.json();
-        if (contestData?.contestRating) {
-          contestRating = Math.round(contestData.contestRating);
-        }
-        if (contestData?.contestGlobalRanking) {
-          contestRanking = contestData.contestGlobalRanking;
-        }
-      } catch (parseError) {
-        console.log('Contest data parse failed');
-      }
-    }
-    
+
+    // Fallback: leet-scrape.vercel.app
+    const fallbackRes = await fetch(`https://leet-scrape.vercel.app/${username}/solvedCount`);
+    if (!fallbackRes.ok) throw new Error('Both APIs failed');
+    const fbData = await fallbackRes.json();
+
     return {
-      totalSolved,
-      easySolved,
-      mediumSolved,
-      hardSolved,
-      ranking: globalRanking || 'N/A',
-      contestRating,
-      contestRanking
+      totalSolved: (fbData.easySolved || 0) + (fbData.mediumSolved || 0) + (fbData.hardSolved || 0),
+      easySolved: fbData.easySolved || 0,
+      mediumSolved: fbData.mediumSolved || 0,
+      hardSolved: fbData.hardSolved || 0,
+      ranking: 'N/A',
+      contestRating: null,
+      contestRanking: null
     };
   } catch (error) {
     console.error('LeetCode API Error:', error);
