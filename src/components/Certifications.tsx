@@ -33,7 +33,8 @@ const Certifications: React.FC = () => {
     { title: "Infosis Data science", image: "/Certificate-Portfolio/Datascience(Infosis).jpg" },
     { title: "Coursera Cloud computing", image: "/Certificate-Portfolio/Coursera-Cloud(SaaS).png" },
     { title: "Cresent - Figma", image: "/Certificate-Portfolio/Creasent-Figma.jpg" },
-    { title: "Cresent - Sector", image: "/Certificate-Portfolio/Creasent-Sector.jpg" }
+    { title: "Cresent - Sector", image: "/Certificate-Portfolio/Creasent-Sector.jpg" },
+    { title: "Code Sprint", image: "/Certificate-Portfolio/Code Sprint - Jerusalem College.jpeg" }
   ];
 
   const getPrevIndex = (index: number) => index === 0 ? certifications.length - 1 : index - 1;
