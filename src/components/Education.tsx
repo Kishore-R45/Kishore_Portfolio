@@ -9,7 +9,7 @@ const Education: React.FC = () => {
       duration: "2023 - 2027",
       details: "",
       present: true,
-      achievements: ["CGPA: 8.3/10","SIH-2024 & 2025 College level Finalist"],
+      achievements: ["CGPA: 8.13/10","SIH-2024 & 2025 College level Finalist"],
       location: "Chennai, Tamilnadu, India"
     },
     {
