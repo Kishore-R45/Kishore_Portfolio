@@ -9,7 +9,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Languages",
     direction: 1,
-    speed: 0.02,
+    speed: 0.003,
     skills: [
       { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
       { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
@@ -20,7 +20,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Frontend",
     direction: -1,
-    speed: 0.015,
+    speed: 0.0025,
     skills: [
       { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
       { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
@@ -30,7 +30,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Backend & DB",
     direction: 1,
-    speed: 0.012,
+    speed: 0.002,
     skills: [
       { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
       { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
@@ -42,7 +42,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Generative AI",
     direction: -1,
-    speed: 0.01,
+    speed: 0.0018,
     skills: [
       { name: "LangChain", icon: "https://avatars.githubusercontent.com/u/126733545?s=200&v=4" },
       { name: "Hugging Face", icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" },
@@ -53,7 +53,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Tools",
     direction: 1,
-    speed: 0.008,
+    speed: 0.0015,
     skills: [
       { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
       { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
@@ -262,25 +262,6 @@ const Skills: React.FC = () => {
               });
             })}
 
-            {/* Orbit labels */}
-            {orbits.map((orbit, i) => {
-              const r = baseRadius + gap * i;
-              return (
-                <div
-                  key={`label-${i}`}
-                  className="absolute pointer-events-none text-muted-foreground"
-                  style={{
-                    left: center + r + 4,
-                    top: center - 8,
-                    fontSize: isMobile ? 8 : 10,
-                    opacity: 0.5,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {orbit.label}
-                </div>
-              );
-            })}
           </div>
         </div>
       </div>
