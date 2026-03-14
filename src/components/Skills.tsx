@@ -20,7 +20,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Frontend",
     direction: -1,
-    speed: 0.015,
+    speed: 0.0025,
     skills: [
       { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
       { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
