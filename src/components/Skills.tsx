@@ -9,7 +9,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Languages",
     direction: 1,
-    speed: 0.02,
+    speed: 0.003,
     skills: [
       { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
       { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
