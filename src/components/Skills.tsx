@@ -262,25 +262,6 @@ const Skills: React.FC = () => {
               });
             })}
 
-            {/* Orbit labels */}
-            {orbits.map((orbit, i) => {
-              const r = baseRadius + gap * i;
-              return (
-                <div
-                  key={`label-${i}`}
-                  className="absolute pointer-events-none text-muted-foreground"
-                  style={{
-                    left: center + r + 4,
-                    top: center - 8,
-                    fontSize: isMobile ? 8 : 10,
-                    opacity: 0.5,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {orbit.label}
-                </div>
-              );
-            })}
           </div>
         </div>
       </div>
