@@ -30,7 +30,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Backend & DB",
     direction: 1,
-    speed: 0.012,
+    speed: 0.002,
     skills: [
       { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
       { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
