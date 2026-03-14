@@ -10,6 +10,7 @@ import Experience from '../components/Experience';
 import Projects from '../components/Projects';
 import Education from '../components/Education';
 import CodingPlatforms from '../components/CodingPlatforms';
+import Achievements from '../components/Achievements';
 import Certifications from '../components/Certifications';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -38,6 +39,7 @@ const Index = () => {
           <Experience />
           <Projects />
           <Education />
+          <Achievements />
           <CodingPlatforms />
           <Certifications />
           <Contact />
