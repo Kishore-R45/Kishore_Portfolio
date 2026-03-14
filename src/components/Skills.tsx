@@ -42,7 +42,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Generative AI",
     direction: -1,
-    speed: 0.01,
+    speed: 0.0018,
     skills: [
       { name: "LangChain", icon: "https://avatars.githubusercontent.com/u/126733545?s=200&v=4" },
       { name: "Hugging Face", icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" },
