@@ -53,7 +53,7 @@ const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number
   {
     label: "Tools",
     direction: 1,
-    speed: 0.008,
+    speed: 0.0015,
     skills: [
       { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
       { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
