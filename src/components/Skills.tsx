@@ -48,7 +48,7 @@ const Skills: React.FC = () => {
         { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
         { name: "PyTorch", icon: "https://pytorch.org/assets/images/pytorch-logo.png" },
       ],
-      color: "from-purple-500 to-pink-500"
+      color: "from-blue-400 to-indigo-500"
     }
   ];
 
