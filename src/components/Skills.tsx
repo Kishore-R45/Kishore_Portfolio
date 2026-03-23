@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
         { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
         { name: "TailwindCSS",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"}
       ],
-      color: "from-yellow-500 to-orange-500"
+      color: "from-cyan-400 to-blue-500"
     },
     {
       title: "Frameworks",
