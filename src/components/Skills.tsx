@@ -24,7 +24,7 @@ const Skills: React.FC = () => {
         { name: "MongoDB",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"},
         { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" }
       ],
-      color: "from-blue-500 to-purple-500"
+      color: "from-violet-400 to-purple-500"
     },
     {
       title: "Tools",
