@@ -1,277 +1,99 @@
-import React, { useEffect, useState, useRef } from "react";
-
-interface Skill {
-  name: string;
-  icon: string;
-}
-
-const orbits: { label: string; skills: Skill[]; direction: 1 | -1; speed: number }[] = [
-  {
-    label: "Languages",
-    direction: 1,
-    speed: 0.003,
-    skills: [
-      { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-      { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
-    ],
-  },
-  {
-    label: "Frontend",
-    direction: -1,
-    speed: 0.0025,
-    skills: [
-      { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-      { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-      { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-    ],
-  },
-  {
-    label: "Backend & DB",
-    direction: 1,
-    speed: 0.002,
-    skills: [
-      { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-      { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
-      { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-      { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-    ],
-  },
-  {
-    label: "Generative AI",
-    direction: -1,
-    speed: 0.0018,
-    skills: [
-      { name: "LangChain", icon: "https://avatars.githubusercontent.com/u/126733545?s=200&v=4" },
-      { name: "Hugging Face", icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" },
-      { name: "PyTorch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
-      { name: "Pinecone", icon: "https://avatars.githubusercontent.com/u/54333248?s=200&v=4" },
-    ],
-  },
-  {
-    label: "Tools",
-    direction: 1,
-    speed: 0.0015,
-    skills: [
-      { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-      { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-      { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
-      { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-      { name: "Postman", icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
-      { name: "Jupyter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
-    ],
-  },
-];
+import React from 'react';
 
 const Skills: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-  const angleRefs = useRef<number[]>(orbits.map(() => 0));
-  const animRef = useRef(0);
-  const [tick, setTick] = useState(0);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 640);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
-  useEffect(() => {
-    const loop = () => {
-      orbits.forEach((o, i) => {
-        angleRefs.current[i] += o.speed * o.direction;
-      });
-      setTick((t) => t + 1);
-      animRef.current = requestAnimationFrame(loop);
-    };
-    animRef.current = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(animRef.current);
-  }, []);
-
-  const containerSize = isMobile ? 340 : 620;
-  const center = containerSize / 2;
-  const baseRadius = isMobile ? 45 : 75;
-  const gap = isMobile ? 32 : 55;
-  const iconSize = isMobile ? 32 : 42;
-  const sunSize = isMobile ? 50 : 70;
+  const skillCategories = [
+    {
+      title: "Languages",
+      skills: [
+        { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "MySQL",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"},
+        { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+        { name: "TailwindCSS",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"}
+      ],
+      color: "from-yellow-500 to-orange-500"
+    },
+    {
+      title: "Frameworks",
+      skills: [
+        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+        { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+        { name: "MongoDB",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"},
+        { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" }
+      ],
+      color: "from-blue-500 to-purple-500"
+    },
+    {
+      title: "Tools",
+      skills: [
+        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "Postman", icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
+        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+        { name: "AWS",icon : "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"}
+      ],
+      color: "from-green-500 to-teal-500"
+    },
+    {
+      title: "AIML",
+      skills: [
+        { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+        { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+        { name: "Scikit-learn", icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
+        { name: "Jupyter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
+        { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+        { name: "PyTorch", icon: "https://pytorch.org/assets/images/pytorch-logo.png" },
+      ],
+      color: "from-purple-500 to-pink-500"
+    }
+  ];
 
   return (
-    <section
-      id="skills"
-      className="py-20 relative overflow-hidden"
-      style={{ background: "transparent" }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-10" data-aos="fade-up">
+    <section id="skills" className="py-20 relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-blue-900/30 dark:to-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
-              Skills &amp; Technologies
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Skills & Technologies
             </span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Technologies orbiting my universe — hover to explore.
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            A comprehensive overview of the technologies and tools I work with.
           </p>
         </div>
 
-        <div className="flex justify-center items-center" data-aos="fade-up" data-aos-delay="200">
-          <div
-            className="relative"
-            style={{ width: containerSize, height: containerSize }}
-          >
-            {/* Orbital ring lines */}
-            {orbits.map((_, i) => {
-              const r = baseRadius + gap * i;
-              return (
-                <div
-                  key={`ring-${i}`}
-                  className="absolute rounded-full pointer-events-none"
-                  style={{
-                    width: r * 2,
-                    height: r * 2,
-                    left: center - r,
-                    top: center - r,
-                    border: "1px solid rgba(6,182,212,0.15)",
-                  }}
-                />
-              );
-            })}
-
-            {/* Center blue sphere */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillCategories.map((category, categoryIndex) => (
             <div
-              className="absolute rounded-full"
-              style={{
-                width: sunSize,
-                height: sunSize,
-                left: center - sunSize / 2,
-                top: center - sunSize / 2,
-                background:
-                  "radial-gradient(circle at 35% 30%, #38bdf8, #0284c7 50%, #0369a1 80%, #075985)",
-                boxShadow:
-                  "0 0 40px rgba(56,189,248,0.5), 0 0 80px rgba(2,132,199,0.3), inset 0 -8px 20px rgba(3,105,161,0.5)",
-              }}
+              key={categoryIndex}
+              data-aos="fade-up"
+              data-aos-delay={categoryIndex * 100}
+              className="group relative p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:scale-105"
             >
-              {/* Specular highlight */}
-              <div
-                className="absolute rounded-full"
-                style={{
-                  width: "45%",
-                  height: "45%",
-                  left: "18%",
-                  top: "12%",
-                  background:
-                    "radial-gradient(circle, rgba(255,255,255,0.45), transparent 70%)",
-                }}
-              />
-            </div>
-
-            {/* Orbiting skills */}
-            {orbits.map((orbit, orbitIdx) => {
-              const r = baseRadius + gap * orbitIdx;
-              const angle = angleRefs.current[orbitIdx];
-
-              return orbit.skills.map((skill, skillIdx) => {
-                const theta =
-                  angle + (skillIdx / orbit.skills.length) * Math.PI * 2;
-                const x = center + Math.cos(theta) * r;
-                const y = center + Math.sin(theta) * r;
-                const isHovered = hoveredSkill === `${orbitIdx}-${skillIdx}`;
-
-                return (
+              <h3 className={`text-2xl font-bold mb-6 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
+                {category.title}
+              </h3>
+              <div className="space-y-4">
+                {category.skills.map((skill, skillIndex) => (
                   <div
-                    key={`${orbitIdx}-${skillIdx}`}
-                    className="absolute"
-                    style={{
-                      left: x,
-                      top: y,
-                      transform: `translate(-50%, -50%) scale(${isHovered ? 1.35 : 1})`,
-                      zIndex: isHovered ? 100 : 10,
-                      transition: "transform 0.2s ease",
-                    }}
-                    onMouseEnter={() =>
-                      setHoveredSkill(`${orbitIdx}-${skillIdx}`)
-                    }
-                    onMouseLeave={() => setHoveredSkill(null)}
+                    key={skillIndex}
+                    className="flex items-center p-3 rounded-lg bg-gray-50/80 dark:bg-gray-700/80 backdrop-blur-sm hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300 hover:scale-105 cursor-pointer group/skill"
                   >
-                    <div
-                      className="flex items-center justify-center rounded-full"
-                      style={{
-                        width: iconSize,
-                        height: iconSize,
-                        background: isHovered
-                          ? "rgba(6,182,212,0.25)"
-                          : "rgba(10,8,32,0.9)",
-                        border: `1.5px solid ${
-                          isHovered
-                            ? "rgba(6,182,212,0.9)"
-                            : "rgba(139,92,246,0.25)"
-                        }`,
-                        boxShadow: isHovered
-                          ? "0 0 20px rgba(6,182,212,0.5)"
-                          : "0 2px 8px rgba(0,0,0,0.3)",
-                        backdropFilter: "blur(4px)",
-                      }}
-                    >
-                      <img
-                        src={skill.icon}
-                        alt={skill.name}
-                        draggable={false}
-                        style={{
-                          width: iconSize * 0.6,
-                          height: iconSize * 0.6,
-                          objectFit: "contain",
-                        }}
-                      />
-                    </div>
-
-                    {isHovered && (
-                      <div
-                        className="absolute pointer-events-none whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-semibold"
-                        style={{
-                          bottom: "calc(100% + 10px)",
-                          left: "50%",
-                          transform: "translateX(-50%)",
-                          background:
-                            "linear-gradient(135deg, rgba(6,182,212,0.95), rgba(139,92,246,0.90))",
-                          color: "#fff",
-                          boxShadow: "0 4px 20px rgba(6,182,212,0.45)",
-                          letterSpacing: "0.04em",
-                          animation: "tooltipIn .2s ease",
-                        }}
-                      >
-                        {skill.name}
-                        <span
-                          style={{
-                            position: "absolute",
-                            bottom: -5,
-                            left: "50%",
-                            transform: "translateX(-50%)",
-                            width: 0,
-                            height: 0,
-                            borderLeft: "6px solid transparent",
-                            borderRight: "6px solid transparent",
-                            borderTop: "6px solid rgba(6,182,212,0.95)",
-                          }}
-                        />
-                      </div>
-                    )}
+                    <img src={skill.icon} alt={skill.name} className="w-8 h-8 mr-3 group-hover/skill:scale-125 transition-transform duration-300" />
+                    <span className="text-gray-700 dark:text-gray-300 group-hover/skill:text-blue-600 dark:group-hover/skill:text-blue-400 transition-colors duration-300">
+                      {skill.name}
+                    </span>
                   </div>
-                );
-              });
-            })}
-
-          </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <style>{`
-        @keyframes tooltipIn {
-          from { opacity: 0; transform: translateX(-50%) translateY(4px); }
-          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-        }
-      `}</style>
     </section>
   );
 };
