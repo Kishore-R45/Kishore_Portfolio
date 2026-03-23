@@ -111,56 +111,51 @@ const Achievements: React.FC = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-violet-500 mx-auto rounded-full" />
         </div>
 
-        {/* Achievements Slider */}
-        <div className="mb-20" data-aos="fade-up">
-          <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
+        {/* Achievements Cards */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-semibold text-foreground mb-10 text-center">
             <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
               Highlights
             </span>
           </h3>
 
-          <div className="relative max-w-4xl mx-auto overflow-hidden">
-            <div
-              className={`flex items-center gap-6 md:gap-10 bg-card/60 backdrop-blur-sm rounded-2xl border border-border p-6 md:p-8 transition-all duration-500 ${
-                achTransitioning ? 'opacity-0 translate-x-4' : 'opacity-100 translate-x-0'
-              }`}
-            >
-              <div className="w-40 h-32 sm:w-56 sm:h-40 md:w-72 md:h-48 flex-shrink-0 rounded-xl overflow-hidden">
-                <img
-                  src={achievements[achIndex].image}
-                  alt={achievements[achIndex].title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <h4 className="text-lg md:text-xl font-bold text-foreground mb-2">
-                  {achievements[achIndex].title}
-                </h4>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed line-clamp-3">
-                  {achievements[achIndex].description}
-                </p>
-              </div>
-            </div>
+          <div className="flex flex-col gap-8 max-w-4xl mx-auto">
+            {achievements.map((achievement, i) => (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 120}
+                className="group relative flex flex-col sm:flex-row items-center gap-6 bg-card/60 backdrop-blur-sm rounded-2xl border border-border p-5 md:p-7 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-1"
+              >
+                {/* Number badge */}
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 flex items-center justify-center text-white text-sm font-bold shadow-lg">
+                  {i + 1}
+                </div>
 
-            {/* Dots */}
-            <div className="flex justify-center mt-4 gap-2">
-              {achievements.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    if (achTransitioning) return;
-                    setAchTransitioning(true);
-                    setTimeout(() => { setAchIndex(i); setAchTransitioning(false); }, 400);
-                  }}
-                  className={`transition-all duration-300 rounded-full ${
-                    i === achIndex
-                      ? 'w-8 h-2 bg-gradient-to-r from-cyan-500 to-violet-500'
-                      : 'w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                  }`}
-                />
-              ))}
-            </div>
+                {/* Image */}
+                <div className="w-full sm:w-52 h-36 sm:h-36 flex-shrink-0 rounded-xl overflow-hidden">
+                  <img
+                    src={achievement.image}
+                    alt={achievement.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 min-w-0 text-center sm:text-left">
+                  <div className="flex items-center gap-2 justify-center sm:justify-start mb-2">
+                    <Trophy className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <h4 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      {achievement.title}
+                    </h4>
+                  </div>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    {achievement.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
