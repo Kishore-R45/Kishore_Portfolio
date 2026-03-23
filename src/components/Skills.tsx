@@ -1,55 +1,127 @@
-import React from 'react';
+import React from "react";
 
 const Skills: React.FC = () => {
   const skillCategories = [
     {
       title: "Languages",
       skills: [
-        { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-        { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-        { name: "MySQL",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"},
-        { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
-        { name: "TailwindCSS",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"}
+        {
+          name: "Java",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        },
+        {
+          name: "Python",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+        },
+        {
+          name: "JavaScript",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        },
+        {
+          name: "SQL",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+        },
+        {
+          name: "C Programming",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+        },
+        {
+          name: "Tailwind CSS",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+        },
       ],
-      color: "from-cyan-400 to-blue-500"
+      color: "from-cyan-400 to-blue-500",
     },
     {
       title: "Frameworks",
       skills: [
-        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-        { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
-        { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-        { name: "MongoDB",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"},
-        { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" }
+        {
+          name: "React",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        },
+        {
+          name: "Node.js",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        },
+        {
+          name: "Flask",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+        },
+        {
+          name: "Spring Boot",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+        },
+        {
+          name: "MongoDB",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+        },
+        {
+          name: "Flutter",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+        },
       ],
-      color: "from-violet-400 to-purple-500"
+      color: "from-violet-400 to-purple-500",
+    },
+    {
+      title: "Gen AI",
+      skills: [
+        {
+          name: "LLM",
+          icon: "https://www.svgrepo.com/show/306500/openai.svg",
+        },
+        {
+          name: "RAG",
+          icon: "https://cdn-icons-png.flaticon.com/512/9068/9068756.png",
+        },
+        {
+          name: "Jupyter",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg",
+        },
+        {
+          name: "LangChain",
+          icon: "https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@latest/packages/static-svg/icons/langchain.svg",
+        },
+        {
+          name: "Vector DB",
+          icon: "https://avatars.githubusercontent.com/u/54333248?s=200&v=4",
+        },
+        {
+          name: "Hugging Face",
+          icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
+        },
+      ],
+      color: "from-blue-400 to-indigo-500",
     },
     {
       title: "Tools",
       skills: [
-        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-        { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-        { name: "Postman", icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
-        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-        { name: "AWS",icon : "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"}
+        {
+          name: "Git",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+        },
+        {
+          name: "AWS",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
+        },
+        {
+          name: "VS Code",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+        },
+        {
+          name: "Docker",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+        },
+        {
+          name: "Postman",
+          icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+        },
+        {
+          name: "Figma",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+        },
       ],
-      color: "from-teal-400 to-cyan-500"
+      color: "from-teal-400 to-cyan-500",
     },
-    {
-      title: "AIML",
-      skills: [
-        { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
-        { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
-        { name: "Scikit-learn", icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
-        { name: "Jupyter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
-        { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
-        { name: "PyTorch", icon: "https://pytorch.org/assets/images/pytorch-logo.png" },
-      ],
-      color: "from-blue-400 to-indigo-500"
-    }
   ];
 
   return (
@@ -84,8 +156,10 @@ const Skills: React.FC = () => {
             >
               {/* Subtle glow on hover */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/0 to-violet-500/0 group-hover:from-cyan-500/5 group-hover:to-violet-500/5 transition-all duration-500" />
-              
-              <h3 className={`relative text-2xl font-bold mb-6 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
+
+              <h3
+                className={`relative text-2xl font-bold mb-6 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
+              >
                 {category.title}
               </h3>
               <div className="relative space-y-3">
@@ -94,7 +168,11 @@ const Skills: React.FC = () => {
                     key={skillIndex}
                     className="flex items-center p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/5 hover:border-cyan-400/20 hover:bg-white/10 transition-all duration-300 hover:scale-105 cursor-pointer group/skill"
                   >
-                    <img src={skill.icon} alt={skill.name} className="w-8 h-8 mr-3 group-hover/skill:scale-125 transition-transform duration-300 drop-shadow-[0_0_6px_rgba(6,182,212,0.3)]" />
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="w-8 h-8 mr-3 group-hover/skill:scale-125 transition-transform duration-300 drop-shadow-[0_0_6px_rgba(6,182,212,0.3)]"
+                    />
                     <span className="text-foreground/80 group-hover/skill:text-cyan-400 transition-colors duration-300">
                       {skill.name}
                     </span>
