@@ -57,28 +57,10 @@ const certifications = [
 ];
 
 const Achievements: React.FC = () => {
-  // Achievement slider state
-  const [achIndex, setAchIndex] = useState(0);
-  const [achTransitioning, setAchTransitioning] = useState(false);
-
   // Certification carousel state
   const [certIndex, setCertIndex] = useState(0);
   const [certPlaying, setCertPlaying] = useState(true);
   const [certTransitioning, setCertTransitioning] = useState(false);
-
-  // Auto-advance achievements
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!achTransitioning) {
-        setAchTransitioning(true);
-        setTimeout(() => {
-          setAchIndex((prev) => (prev + 1) % achievements.length);
-          setAchTransitioning(false);
-        }, 400);
-      }
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [achTransitioning]);
 
   // Auto-advance certifications
   useEffect(() => {
