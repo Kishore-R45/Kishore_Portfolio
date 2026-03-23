@@ -16,10 +16,10 @@ const CodingPlatforms: React.FC = () => {
   const { stats, loading, errors } = useCodingStats(usernames);
 
   const manualGeeksforGeeksData = {
-    totalSolved: 263,
-    score: 634,
-    easySolved: 99,
-    mediumSolved: 84,
+    totalSolved: 268,
+    score: 650,
+    easySolved: 103,
+    mediumSolved: 98,
     hardSolved: 2,
     InstitutionRanking: 12,
     Language: "Java"
@@ -210,7 +210,7 @@ const CodingPlatforms: React.FC = () => {
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
-              Coding Platforms
+              Coding Profiles
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
