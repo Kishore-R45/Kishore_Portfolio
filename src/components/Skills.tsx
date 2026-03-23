@@ -36,7 +36,7 @@ const Skills: React.FC = () => {
         { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
         { name: "AWS",icon : "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"}
       ],
-      color: "from-green-500 to-teal-500"
+      color: "from-teal-400 to-cyan-500"
     },
     {
       title: "AIML",
