@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
         { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
         { name: "TailwindCSS",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"}
       ],
-      color: "from-yellow-500 to-orange-500"
+      color: "from-cyan-400 to-blue-500"
     },
     {
       title: "Frameworks",
@@ -24,7 +24,7 @@ const Skills: React.FC = () => {
         { name: "MongoDB",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"},
         { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" }
       ],
-      color: "from-blue-500 to-purple-500"
+      color: "from-violet-400 to-purple-500"
     },
     {
       title: "Tools",
@@ -36,7 +36,7 @@ const Skills: React.FC = () => {
         { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
         { name: "AWS",icon : "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"}
       ],
-      color: "from-green-500 to-teal-500"
+      color: "from-teal-400 to-cyan-500"
     },
     {
       title: "AIML",
@@ -48,20 +48,28 @@ const Skills: React.FC = () => {
         { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
         { name: "PyTorch", icon: "https://pytorch.org/assets/images/pytorch-logo.png" },
       ],
-      color: "from-purple-500 to-pink-500"
+      color: "from-blue-400 to-indigo-500"
     }
   ];
 
   return (
-    <section id="skills" className="py-20 relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-blue-900/30 dark:to-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 relative overflow-hidden">
+      {/* Space-themed background */}
+      <div className="absolute inset-0 bg-transparent" />
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-violet-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/3 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
               Skills & Technologies
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             A comprehensive overview of the technologies and tools I work with.
           </p>
         </div>
@@ -72,19 +80,22 @@ const Skills: React.FC = () => {
               key={categoryIndex}
               data-aos="fade-up"
               data-aos-delay={categoryIndex * 100}
-              className="group relative p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:scale-105"
+              className="group relative p-6 rounded-2xl bg-card/40 backdrop-blur-md shadow-lg shadow-cyan-500/5 hover:shadow-cyan-500/15 border border-white/10 hover:border-cyan-400/30 transition-all duration-500 hover:scale-105 hover:bg-card/60"
             >
-              <h3 className={`text-2xl font-bold mb-6 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
+              {/* Subtle glow on hover */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/0 to-violet-500/0 group-hover:from-cyan-500/5 group-hover:to-violet-500/5 transition-all duration-500" />
+              
+              <h3 className={`relative text-2xl font-bold mb-6 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
                 {category.title}
               </h3>
-              <div className="space-y-4">
+              <div className="relative space-y-3">
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="flex items-center p-3 rounded-lg bg-gray-50/80 dark:bg-gray-700/80 backdrop-blur-sm hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300 hover:scale-105 cursor-pointer group/skill"
+                    className="flex items-center p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/5 hover:border-cyan-400/20 hover:bg-white/10 transition-all duration-300 hover:scale-105 cursor-pointer group/skill"
                   >
-                    <img src={skill.icon} alt={skill.name} className="w-8 h-8 mr-3 group-hover/skill:scale-125 transition-transform duration-300" />
-                    <span className="text-gray-700 dark:text-gray-300 group-hover/skill:text-blue-600 dark:group-hover/skill:text-blue-400 transition-colors duration-300">
+                    <img src={skill.icon} alt={skill.name} className="w-8 h-8 mr-3 group-hover/skill:scale-125 transition-transform duration-300 drop-shadow-[0_0_6px_rgba(6,182,212,0.3)]" />
+                    <span className="text-foreground/80 group-hover/skill:text-cyan-400 transition-colors duration-300">
                       {skill.name}
                     </span>
                   </div>
