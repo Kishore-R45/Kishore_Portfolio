@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Pause, Play, Trophy } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Trophy } from 'lucide-react';
 
 interface Achievement {
   title: string;
@@ -145,7 +145,7 @@ const Achievements: React.FC = () => {
                 {/* Content */}
                 <div className="flex-1 min-w-0 text-center sm:text-left">
                   <div className="flex items-center gap-2 justify-center sm:justify-start mb-2">
-                    <Trophy className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <Trophy className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                     <h4 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                       {achievement.title}
                     </h4>
@@ -223,9 +223,6 @@ const Achievements: React.FC = () => {
           </div>
 
           <div className="mt-8 flex flex-col items-center space-y-4">
-            <button onClick={() => setCertPlaying(!certPlaying)} className="p-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg hover:scale-110 transition-all duration-300">
-              {certPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-            </button>
             <div className="flex space-x-2 overflow-x-auto max-w-full px-4">
               {certifications.map((_, i) => (
                 <button
