@@ -40,7 +40,7 @@ const Index = () => {
           <Projects />
           <Education />
           <CodingPlatforms />
-          {/* <Achievements /> */}
+          <Achievements />
           <Contact />
         </main>
         <Footer />

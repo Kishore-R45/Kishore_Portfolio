@@ -9,19 +9,19 @@ interface Achievement {
 
 const achievements: Achievement[] = [
   {
-    title: "Sample Achievement 1",
-    description: "Replace with your achievement description. Add details about what you accomplished.",
-    image: "/placeholder.svg",
+    title: "Best Coder Award",
+    description: "Awarded Best Coder at IT Excellence Awards 2026 among 900+ students for outstanding performance in programming. Recognized for consistently solving DSA problems and building impactful projects.",
+    image: "/Achievements/Coder Award.jpeg",
   },
   {
-    title: "Sample Achievement 2",
-    description: "Replace with your achievement description. Add details about what you accomplished.",
-    image: "/placeholder.svg",
+    title: "Winner in Coding Contest",
+    description: "Secured 1st place in a coding contest at Enthral 2K26, conducted by Alpha Engineering College. Demonstrated strong problem-solving skills, algorithmic thinking, and the ability to perform under time constraints.",
+    image: "/Achievements/Coding Contest.jpeg",
   },
   {
-    title: "Sample Achievement 3",
-    description: "Replace with your achievement description. Add details about what you accomplished.",
-    image: "/placeholder.svg",
+    title: "Winner in Tech Quiz",
+    description: "Won 1st place in the Tech Quiz at AIRA 2K26, conducted by SRM IST. Showcased deep knowledge in technology, current trends, and core computer science concepts, along with quick analytical thinking and accuracy under pressure.",
+    image: "/Achievements/Tech Quiz.jpeg",
   },
 ];
 
@@ -128,9 +128,9 @@ const Achievements: React.FC = () => {
                 className="group relative flex flex-col sm:flex-row items-center gap-6 bg-card/60 backdrop-blur-sm rounded-2xl border border-border p-5 md:p-7 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-1"
               >
                 {/* Number badge */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 flex items-center justify-center text-white text-sm font-bold shadow-lg">
+                {/* <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 flex items-center justify-center text-white text-sm font-bold shadow-lg">
                   {i + 1}
-                </div>
+                </div> */}
 
                 {/* Image */}
                 <div className="w-full sm:w-52 h-36 sm:h-36 flex-shrink-0 rounded-xl overflow-hidden">
