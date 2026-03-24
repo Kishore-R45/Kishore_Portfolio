@@ -11,7 +11,7 @@ const achievements: Achievement[] = [
   {
     title: "Best Coder Award",
     description: "Awarded Best Coder at IT Excellence Awards 2026 among 900+ students for outstanding performance in programming. Recognized for consistently solving DSA problems and building impactful projects.",
-    image: "/Achievements/Coder Award.jpeg",
+    image: "/Achievements/Coder Award.JPG",
   },
   {
     title: "Winner in Coding Contest",
@@ -31,6 +31,7 @@ const certifications = [
   { title: "Cisco - CCNA Level 2", image: "/Certificate-Portfolio/CCNA-2.png" },
   { title: "Cisco - CCNA Level 3", image: "/Certificate-Portfolio/CCNA-3.png" },
   { title: "Innovate - Inspire Season 13 Winner", image: "/Certificate-Portfolio/Innovate & Inspire - Season 13.png" },
+  { title: "AgentathonX - Hackathon", image: "/Certificate-Portfolio/AgentathonX-Hackthon Certificate.png" },
   { title: "CodeHolic - Hackathon", image: "/Certificate-Portfolio/CodeHolic- Hackathon.png" },
   { title: "Udemy Full stack", image: "/Certificate-Portfolio/Udemy Full-Stack.jpg" },
   { title: "Hackerrank Problem solving basic", image: "/Certificate-Portfolio/Hackerrank-ProblemSolving.png" },
