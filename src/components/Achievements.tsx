@@ -145,7 +145,7 @@ const Achievements: React.FC = () => {
                 {/* Content */}
                 <div className="flex-1 min-w-0 text-center sm:text-left">
                   <div className="flex items-center gap-2 justify-center sm:justify-start mb-2">
-                    <Trophy className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <Trophy className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                     <h4 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                       {achievement.title}
                     </h4>
