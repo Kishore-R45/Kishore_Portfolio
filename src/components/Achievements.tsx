@@ -223,9 +223,6 @@ const Achievements: React.FC = () => {
           </div>
 
           <div className="mt-8 flex flex-col items-center space-y-4">
-            <button onClick={() => setCertPlaying(!certPlaying)} className="p-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-500 text-white shadow-lg hover:scale-110 transition-all duration-300">
-              {certPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-            </button>
             <div className="flex space-x-2 overflow-x-auto max-w-full px-4">
               {certifications.map((_, i) => (
                 <button
