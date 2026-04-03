@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
   };
 
   const openResume = () => {
-    window.open('/assets/Kishore_Resume.pdf', '_blank');
+    window.open('/assets/Kishore Resume-1.pdf', '_blank');
   };
 
   return (
